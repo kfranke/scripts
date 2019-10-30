@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <script type="text/javascript">
+    	var esn_list = ["0-324090","0-329371","0-276529","0-274892","0-306165","0-281582","0-301300","0-304086","0-324535"];
+    	
+    	var inventoryData = JSON.parse('[{"id":236862,"value":188,"status_id":161,"ESN":"0-324090","Location":"JFO Mickey Mouse","Status":"Mission Assigned ","Contact":"John Public"},{"id":236841,"value":194,"status_id":175,"ESN":"0-329371","Location":"Proposed Deactivation","Status":"Proposed Deactivation","Contact":null},{"id":139209,"value":61,"status_id":161,"ESN":"0-276529","Location":"THU Mulon Rouge","Status":"Mission Assigned ","Contact":"John Doe"},{"id":182939,"value":61,"status_id":161,"ESN":"0-306165","Location":"THU Mulon Rouge","Status":"Mission Assigned ","Contact":null},{"id":182954,"value":187,"status_id":161,"ESN":"0-281582","Location":"Hitching Post","Status":"Mission Assigned ","Contact":null},{"id":182940,"value":187,"status_id":161,"ESN":"0-304086","Location":"Hitching Post","Status":"Mission Assigned ","Contact":null},{"id":236842,"value":187,"status_id":161,"ESN":"0-324535","Location":"Hitching Post","Status":"Mission Assigned ","Contact":null}]');
+    	
+
+            //console.log(isInObj("0-274892",'ESN',inventoryData));
+            //console.log(isInObj("0-304086","ESN",inventoryData));
+            
+
+            
+
+        var maxId = Math.max.apply(Math,inventoryData.map(function(o){return o.id;}))
+        var inventoryStatus = [];
+        for(var x in esn_list)
+        {
+            if(isInObj(esn_list[x],"ESN",inventoryData))
+            {
+                console.log("esn :" + esn_list[x] + " found");
+                const result = inventoryData.find( item => item.ESN === esn_list[x] );
+                inventoryStatus.push(result);
+                //console.log(result);
+
+            }
+            else
+            {
+                console.log("esn :" + esn_list[x] + " not found");
+                var idVal = randomInt(999999,maxId);
+                inventoryStatus.push({"id": idVal,"ESN": esn_list[x],"Location":"(none)","Status":"(none)","Contact":"(none)"})
+            }   
+        }
+        //console.log(inventoryStatus);
+        //Extract the ESNs returned from inventory query
+    	var inventoryEsns = [];
+    	for(var x in inventoryData){
+			inventoryEsns.push(inventoryData[x].ESN);
+		}
+		// Compare the submitted ESNs against the returned ones and get non inventoried ESNs
+		let esnsNotFound = esn_list.filter(val => !inventoryEsns.includes(val));
+    	// Add into the inventory array the non inventory ESNs for display in the datatable
+    	for(var x in esnsNotFound){
+    		inventoryData.push({"id":999999,"ESN": esnsNotFound[x],"Location":"(none)","Status":"(none)","Contact":"(none)"})
+    	}
+    	
+    	function randomInt(min,max)
+        { 
+          return Math.floor(Math.random()*(max-min+1)+min);
+        }
+
+        function isInObj(str, prop, obj)
+        {
+            var scope = {"name": prop};
+            for (i=0; i < obj.length; i++)
+            {
+                //console.log("haystack: " + obj[i][scope.name] + " needle : " + str);
+                if (obj[i][scope.name] == str)
+                {
+                    return true;
+                }
+            }
+            return false
+        }
+
+    </script>
+  </head>
+  <body>
+
+	  <p>submittedEsns</p>
+	  <div id="submittedEsns">sample</div>
+	  <p>inventoryEsns</p>
+	  <div id="inventoryEsns"></div>
+	  <p>notfoundEsns</p>
+	  <div id="notfoundEsns"></div>
+  </body>
+</html>
