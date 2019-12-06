@@ -50,7 +50,7 @@ if( isset($argv[2]) )
 {
 	$limited_search = true;
 	$search_esns = array();
-	preg_match_all('/3[0-9]{6}/', $argv[2], $search_esns);
+	preg_match_all('/[3-4][0-9]{6}/', $argv[2], $search_esns);
 	print("Search ESNs: \n");
 	print( implode("\n", $search_esns[0]) . "\n");
 	$stats['mode'] = 'filtered';
@@ -64,6 +64,8 @@ else
 print("Supplied file set to: $log_file\n");
 
 if(!$valid_log_file) die("Cannot find specified log file: $log_file\n");
+$io_log_file_path = pathinfo($io_log_file);
+$output_dir = $io_log_file_path['dirname'];
 
 $records = array();
 
@@ -77,7 +79,7 @@ if ($handle)
         // 6/7/2019,10:31:06,ListViewItem B| 3315175 :: 1.713 - COM38 -- 9600
         // 5/7/2019,10:54:39,ListViewItem 7877| 3316369 :: 1.7.0 - COM28 -- 9600
     	
-		$query_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*ListViewItem.*(3[0-9]{6})/';
+		$query_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*ListViewItem.*([3-4][0-9]{6})/';
 		preg_match($query_ptn, $buffer, $matches);
 		if( count($matches === 3) && isset($matches[1]) && isset($matches[2]) )
 		{
@@ -189,7 +191,7 @@ if($limited_search)
 		if($entry['state'] == 'PASS') $stats['passed'] += 1;
 		if($entry['state'] == 'FAIL') $stats['failed'] += 1;
 	}
-	$fp = fopen($output_file, 'w');
+	$fp = fopen($output_dir . '/' . $output_file, 'w');
 	fwrite($fp, $columns);
 	fwrite($fp, $rows);
 	fclose($fp);
@@ -206,19 +208,19 @@ else
 		if($entry['state'] == 'PASS') $stats['passed'] += 1;
 		if($entry['state'] == 'FAIL') $stats['failed'] += 1;
 	}
-	$fp = fopen('device_program_results_'.$runtime.'.csv', 'w');
+	$fp = fopen($output_dir . '/' . $output_file, 'w');
 	fwrite($fp, $columns);
 	fwrite($fp, $rows);
 	fclose($fp);
 }
 
 // stats. mode, X total, Y pass, Z fail
-$data = file_get_contents($output_file);
+$data = file_get_contents($output_dir . '/' . $output_file);
 $summary = '';
 foreach ($stats as $key => $value) {
 	$summary .= str_repeat(',', count($columns)+4) . $key . ':,' . $value . "\n";
 }
 print "Statistics\n";
 print str_replace(',', '', $summary);
-file_put_contents($output_file, $summary . $data);
-print "Wrote data to: " . $output_file . "\n";
+file_put_contents($output_dir . '/' . $output_file, $summary . $data);
+print "Wrote data to: " . $output_dir . '/' . $output_file . "\n";

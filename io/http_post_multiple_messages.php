@@ -5,29 +5,41 @@ require(__DIR__ . "/../_GLOBALS.php");
 $msgDir = $argv[1];
 
 $file_pattern = "*.xml";
-$msgDirProccessed = "/tmp/processed";
+$msgDirProccessed = "./processed_replay_msgs";
 
 $config['path'] = PATH;
 $config['host'] = HOST;
-$config['scheme'] = "https";
-$config['user'] = USERNAME;
-$config['pass'] = PASSWORD;
+$config['scheme'] = "http";
+//$config['user'] = USERNAME;
+//$config['pass'] = PASSWORD;
 $config['timeout'] = 20;
+$config['port'] = PORT;
+
+if(!is_dir($msgDirProccessed))
+{
+    echo "Proccessed directoy does not exist, making it at".$msgDirProccessed."\n";
+    mkdir($msgDirProccessed, 0755);
+}
 
 foreach (glob($msgDir . $file_pattern) as $filename) {
-    echo "File Read: $filename" . "\n";
+    echo "____________________________________________________\n";
+    echo "Beginning transaction on ". $filename . "\n";
     $msg = file_get_contents($filename);
-    http_post($config, $msg);
-    if(!is_dir($msgDirProccessed))
-    {
-        echo "Proccessed directoy does not exist, making it at".$msgDirProccessed."\n";
-        mkdir($msgDirProccessed, 0755);
-    }
-    // havent tested this, but should move only the successful response msgs to processed dir
+    
     $response = http_post($config, $msg);
+    
     if($response['success'] == true)
     {
-        rename($filename, $msgDirProccessed."/".basename($filename) );
+        if($response['code'] == 200)
+        {
+            echo "Sucessful POST with HTTP code: " . $response['code'] . "\n";
+            rename($filename, $msgDirProccessed."/".basename($filename) );
+            echo "Moved " . basename($filename) . " to " . $msgDirProccessed . "/" . basename($filename) . "\n";
+        }
+        else
+        {
+            echo "Responded " . $response['code'] . " not moving to successfull\n";
+        }
     }
 }
 
@@ -73,8 +85,7 @@ function http_post($parsedURL, $message)
             // user specified an explicit port, so override the default
             $port = $parsedURL['port'];
     }
-    echo("request\n".$request."\n");
-    //       echo("@fsockopen(".$scheme . $parsedURL['host'].",". $port.",". $errorNumber.",". $errorString.",". $timeout.");");
+    // echo("request\n".$request."\n");
     $starttime = microtime(true);
     $fp = @fsockopen($scheme . $parsedURL['host'], $port, $errorNumber, $errorString, $timeout);
     if(!$fp) throw new Exception("Failed to connect to " . $parsedURL['host'] . " on port $port.\n$errorString.");
@@ -112,8 +123,9 @@ function http_post($parsedURL, $message)
             list($line, $code, $message) = $matches;
 
             $success = (substr($code, 0, 1) == "2");        // 2xx codes = success
-                    print(print_r(array("success" => $success, "message" => $firstLine),true));
-                    print "Transaction time: $transaction_time\n";
+             print(print_r(array("success" => $success, "message" => $firstLine),true));
+         print "Transaction time: $transaction_time\n";
+             return array("success" => true, "code" => $code, "message" => $firstLine);
 
     }
     else return array("success" => false, "message" => "Server's response was not valid HTTP");
