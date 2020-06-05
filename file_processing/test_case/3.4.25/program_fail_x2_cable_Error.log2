@@ -1,0 +1,790 @@
+5/8/2020,18:41:20,Program Version: 3.4.2  | Serial ports: 2
+5/8/2020,18:41:20,queryESN ports: 2
+5/8/2020,18:41:25,SmartOneSolar Detected
+5/8/2020,18:41:25,ListViewItem 7877| 3314684 :: 1.7.0 - COM4 -- 9600
+5/8/2020,18:41,|7915| Exception -> The operation has timed out.,COM5
+5/8/2020,18:41,|7896| Exception -> The operation has timed out.,COM5
+5/8/2020,18:41,|7896| Exception -> The operation has timed out.,COM5
+5/8/2020,18:41:57,------------------------------------Starting Programming------------------------------------------
+5/8/2020,18:41:57,Getting com ports.
+5/8/2020,18:41:57,We have 1 com ports with 1 ESNs
+5/8/2020,18:41:57,-------------------------------------------------Working with com port COM4---------------------------------------------------------------
+5/8/2020,18:42:04,Writing Command wake up: aa 05 01 50 d5 
+5/8/2020,18:42:04,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:42:10,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/8/2020,18:42:10,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:42:11,817|False|aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:42:11,818| Successfully queried the ESN 3314684 on: COM4
+5/8/2020,18:42:11,ESNFormat is correct.
+5/8/2020,18:42:11,Performing ProgrammingData.gemOpCfg writeup.
+5/8/2020,18:42:17,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/8/2020,18:42:17,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:42:17,ProgrammingData.gemOpCfg is successfully written.
+5/8/2020,18:42:17,Performing ProgrammingData.motCfg writeup.
+5/8/2020,18:42:23,Writing Command motCgcC: aa 16 45 00 00 a8 c0 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 03 e0 
+5/8/2020,18:42:23,Correct response received: aa 05 45 70 d1 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:42:23,ProgrammingData.motCfgC is successfully written.
+5/8/2020,18:42:23,Performing ProgrammingData.accumCountConfig writeup.
+5/8/2020,18:42:29,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/8/2020,18:42:29,Correct response received: aa 05 47 62 f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:42:30,ProgrammingData.accumCountConfig is successfully written.
+5/8/2020,18:42:30,Performing ProgrammingData.AccConfig writeup.
+5/8/2020,18:42:36,Writing Command AccConfig: aa 09 23 02 08 02 00 93 14 
+5/8/2020,18:42:36,Correct response received: aa 05 23 40 d7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:42:36,ProgrammingData.AccConfig is successfully written.
+5/8/2020,18:42:36,Performing ProgrammingData.softwareReset writeup.
+5/8/2020,18:42:36,This should be the last step of the programming process.
+5/8/2020,18:42:42,Writing Command softwareReset: aa 05 ed 32 f8 
+5/8/2020,18:42:42,Device is now reset.
+5/8/2020,18:42:42,Performing ProgrammingData.SpeedAndHeadingConfig writeup.
+5/8/2020,18:42:48,Writing Command SpeedAndHeadingConfig: aa 06 ce 00 2e 04 
+5/8/2020,18:42:48,Correct response received: aa 05 ce ab eb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:42:49,ProgrammingData.SpeedAndHeadingConfig is successfully written.
+5/8/2020,18:42:49,Performing ProgrammingData.PowerOnOffConfig writeup.
+5/8/2020,18:42:55,Writing Command PowerOnOffConfig: aa 06 cc 00 9e 37 
+5/8/2020,18:42:55,Correct response received: aa 05 cc b9 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:42:55,ProgrammingData.PowerOnOffConfig is successfully written.
+5/8/2020,18:42:55,SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND writeup.
+5/8/2020,18:43:01,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/8/2020,18:43:01,Reply received has corrupted command code.
+5/8/2020,18:43:01,CRC didn't match of response received: aa 05 ff a1 cb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:43:07,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/8/2020,18:43:07,Reply received has corrupted command code.
+5/8/2020,18:43:07,CRC didn't match of response received: aa 05 ff a1 cb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:43:14,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/8/2020,18:43:14,Reply received has corrupted command code.
+5/8/2020,18:43:14,CRC didn't match of response received: aa 05 ff a1 cb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:43:20,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/8/2020,18:43:20,Reply received has corrupted command code.
+5/8/2020,18:43:20,CRC didn't match of response received: aa 05 ff a1 cb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:43:20,Written all the commands. 
+5/8/2020,18:43:21,Successfully queried all the ESNs.
+5/8/2020,18:43:26,About to write fileWriteBuffer: ac 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 a8 c0 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 a8 c0 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 02 08 02 00 00 00 01 52 ff 49 
+5/8/2020,18:43:38,queryESN ports: 2
+5/8/2020,18:43:43,SmartOneSolar Detected
+5/8/2020,18:43:43,ListViewItem 7877| 3314684 :: 1.7.0 - COM4 -- 9600
+5/8/2020,18:43,|7915| Exception -> The operation has timed out.,COM5
+5/8/2020,18:43,|7896| Exception -> The operation has timed out.,COM5
+5/8/2020,18:44,|7896| Exception -> The operation has timed out.,COM5
+5/8/2020,18:44:02,------------------------------------Starting Programming------------------------------------------
+5/8/2020,18:44:02,Getting com ports.
+5/8/2020,18:44:02,We have 1 com ports with 1 ESNs
+5/8/2020,18:44:02,-------------------------------------------------Working with com port COM4---------------------------------------------------------------
+5/8/2020,18:44:09,Writing Command wake up: aa 05 01 50 d5 
+5/8/2020,18:44:09,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:44:16,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/8/2020,18:44:16,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:44:16,817|False|aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:44:16,818| Successfully queried the ESN 3314684 on: COM4
+5/8/2020,18:44:16,ESNFormat is correct.
+5/8/2020,18:44:16,Performing ProgrammingData.gemOpCfg writeup.
+5/8/2020,18:44:22,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/8/2020,18:44:24,|1094| Exception caught: The operation has timed out.
+5/8/2020,18:44:30,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/8/2020,18:44:32,|1094| Exception caught: The operation has timed out.
+5/8/2020,18:44:39,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/8/2020,18:44:41,|1094| Exception caught: The operation has timed out.
+5/8/2020,18:44:47,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/8/2020,18:44:49,|1094| Exception caught: The operation has timed out.
+5/8/2020,18:44:49,FAIL 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:44:49,fail() True
+5/8/2020,18:44:50,newLI ListViewItem: {3314684}
+5/8/2020,18:44:50,Successfully queried all the ESNs.
+5/15/2020,10:53:01,Program Version: 3.4.25  | Serial ports: 1
+5/15/2020,10:53:01,Start Scanning Nearby Bluetooth Peripherals
+5/15/2020,10:53:01,Search for Bluegiga BLE Dongle
+5/15/2020,10:53:01,Bluegiga BLE Dongle Detected
+5/15/2020,10:53:01,Open Bluegiga BLE Dongle COM Port: COM5
+5/15/2020,10:53:12,Stop Scanning Nearby Bluetooth Peripherals
+5/15/2020,10:53:13,Close Bluegiga BLE Dongle COM Port: COM5
+5/15/2020,10:53:31,Start Scanning Nearby Bluetooth Peripherals
+5/15/2020,10:53:31,Search for Bluegiga BLE Dongle
+5/15/2020,10:53:31,Bluegiga BLE Dongle Detected
+5/15/2020,10:53:31,Open Bluegiga BLE Dongle COM Port: COM5
+5/15/2020,10:53:33,Stop Scanning Nearby Bluetooth Peripherals
+5/15/2020,10:53:33,ble_evt_connection_status: connection=0, flags=5, address=[ 92 3d f1 ef 8d c0 ], address_type=1, conn_interval=36, timeout=256, latency=0, bonding=255
+
+5/15/2020,10:53:35,Connected, Now performing service discovery...
+5/15/2020,10:53:36,Completed Event Triggered: 0
+5/15/2020,10:53:36,Dfu Characteristic Found, with handle: 29
+5/15/2020,10:53:36,RX Characteristic Found, with handle: 33
+5/15/2020,10:53:36,TX Characteristic Found, with handle: 35
+5/15/2020,10:53:36,TX Characteristic Config Found, with handle: 36
+5/15/2020,10:53:36,Completed Event Triggered: 37
+5/15/2020,10:53:37,Send Command: 01-00
+5/15/2020,10:53:37,Completed Event Triggered: 36
+5/15/2020,10:53:37,Send Command: AA-05-43-46-B4
+5/15/2020,10:53:38,Completed Event Triggered: 33
+5/15/2020,10:53:38,Length: 20, Bluetooth attribute output: AA-29-43-11-03-3C-78-0A-14-00-00-00-00-00-00-02-D0-00-00-00
+5/15/2020,10:53:38,Length: 20, Bluetooth attribute output: 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-B1
+5/15/2020,10:53:38,Length: 1, Bluetooth attribute output: D2
+5/15/2020,10:53:39,Send Command: AA-05-46-EB-E3
+5/15/2020,10:53:40,Completed Event Triggered: 33
+5/15/2020,10:53:40,Length: 20, Bluetooth attribute output: AA-16-46-00-00-A8-C0-05-A0-00-00-00-00-30-05-05-C8-00-C8-00
+5/15/2020,10:53:40,Length: 2, Bluetooth attribute output: 3B-E1
+5/15/2020,10:53:40,Send Command: AA-05-48-95-0A
+5/15/2020,10:53:41,Completed Event Triggered: 33
+5/15/2020,10:53:41,Length: 20, Bluetooth attribute output: AA-16-48-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20
+5/15/2020,10:53:41,Length: 2, Bluetooth attribute output: F2-73
+5/15/2020,10:53:42,Send Command: AA-05-24-FF-A3
+5/15/2020,10:53:43,Completed Event Triggered: 33
+5/15/2020,10:53:43,Length: 9, Bluetooth attribute output: AA-09-24-02-08-02-00-4F-24
+5/15/2020,10:53:43,Send Command: AA-05-CF-22-FA
+5/15/2020,10:53:44,Completed Event Triggered: 33
+5/15/2020,10:53:44,Length: 6, Bluetooth attribute output: AA-06-CF-00-F6-1D
+5/15/2020,10:53:45,Send Command: AA-05-CD-30-D9
+5/15/2020,10:53:46,Completed Event Triggered: 33
+5/15/2020,10:53:46,Length: 6, Bluetooth attribute output: AA-06-CD-00-46-2E
+5/15/2020,10:53:47,Close Bluegiga BLE Dongle COM Port: COM5
+5/15/2020,10:54:03,Start Scanning Nearby Bluetooth Peripherals
+5/15/2020,10:54:03,Search for Bluegiga BLE Dongle
+5/15/2020,10:54:03,Bluegiga BLE Dongle Detected
+5/15/2020,10:54:03,Open Bluegiga BLE Dongle COM Port: COM5
+5/15/2020,10:54:18,Stop Scanning Nearby Bluetooth Peripherals
+5/15/2020,10:54:18,ble_evt_connection_status: connection=0, flags=5, address=[ 92 3d f1 ef 8d c0 ], address_type=1, conn_interval=36, timeout=256, latency=0, bonding=255
+
+5/15/2020,10:54:20,Connected, Now performing service discovery...
+5/15/2020,10:54:20,Completed Event Triggered: 0
+5/15/2020,10:54:21,Dfu Characteristic Found, with handle: 29
+5/15/2020,10:54:21,RX Characteristic Found, with handle: 33
+5/15/2020,10:54:21,TX Characteristic Found, with handle: 35
+5/15/2020,10:54:21,TX Characteristic Config Found, with handle: 36
+5/15/2020,10:54:21,Completed Event Triggered: 37
+5/15/2020,10:54:21,Send Command: 01-00
+5/15/2020,10:54:22,Completed Event Triggered: 36
+5/15/2020,10:54:22,Send Command: AA-29-42-11-03-3C-78-0A-14-00-00-00-00-00-00-02-D0-00-00-00
+5/15/2020,10:54:24,Send Command: 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-EE
+5/15/2020,10:54:25,Send Command: 68
+5/15/2020,10:54:26,Completed Event Triggered: 33
+5/15/2020,10:54:26,Completed Event Triggered: 33
+5/15/2020,10:54:26,Completed Event Triggered: 33
+5/15/2020,10:54:26,Length: 5, Bluetooth attribute output: AA-05-42-CF-A5
+5/15/2020,10:54:27,Send Command: AA-16-45-00-00-27-60-05-A0-00-00-00-00-30-05-05-C8-00-C8-00
+5/15/2020,10:54:29,Send Command: A2-5D
+5/15/2020,10:54:30,Completed Event Triggered: 33
+5/15/2020,10:54:30,Completed Event Triggered: 33
+5/15/2020,10:54:30,Length: 5, Bluetooth attribute output: AA-05-45-70-D1
+5/15/2020,10:54:31,Send Command: AA-16-47-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20
+5/15/2020,10:54:32,Send Command: 2A-76
+5/15/2020,10:54:33,Completed Event Triggered: 33
+5/15/2020,10:54:33,Completed Event Triggered: 33
+5/15/2020,10:54:33,Length: 5, Bluetooth attribute output: AA-05-47-62-F2
+5/15/2020,10:54:34,Send Command: AA-09-23-02-08-02-00-93-14
+5/15/2020,10:54:35,Completed Event Triggered: 33
+5/15/2020,10:54:35,Length: 5, Bluetooth attribute output: AA-05-23-40-D7
+5/15/2020,10:54:36,Send Command: AA-06-CE-00-2E-04
+5/15/2020,10:54:37,Completed Event Triggered: 33
+5/15/2020,10:54:37,Length: 5, Bluetooth attribute output: AA-05-CE-AB-EB
+5/15/2020,10:54:38,Send Command: AA-06-CC-00-9E-37
+5/15/2020,10:54:39,Completed Event Triggered: 33
+5/15/2020,10:54:39,Length: 5, Bluetooth attribute output: AA-05-CC-B9-C8
+5/15/2020,10:54:40,Send Command: AA-05-D1-DD-03
+5/15/2020,10:54:41,Completed Event Triggered: 33
+5/15/2020,10:54:41,Length: 5, Bluetooth attribute output: AA-05-D1-DD-03
+5/15/2020,10:54:41,Disconnecting the device...
+5/15/2020,10:54:41,Successfully Programmed: 3314684 via Bluetooth
+5/15/2020,10:54:44,Close Bluegiga BLE Dongle COM Port: COM5
+5/15/2020,10:55:12,About to write fileWriteBuffer: ac 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 02 08 02 00 00 00 01 2f e2 d1 
+5/15/2020,10:55:26,Start Scanning Nearby Bluetooth Peripherals
+5/15/2020,10:55:26,Search for Bluegiga BLE Dongle
+5/15/2020,10:55:26,Bluegiga BLE Dongle Detected
+5/15/2020,10:55:26,Open Bluegiga BLE Dongle COM Port: COM5
+5/15/2020,10:55:41,Stop Scanning Nearby Bluetooth Peripherals
+5/15/2020,10:55:41,ble_evt_connection_status: connection=0, flags=5, address=[ 92 3d f1 ef 8d c0 ], address_type=1, conn_interval=36, timeout=256, latency=0, bonding=255
+
+5/15/2020,10:55:43,Connected, Now performing service discovery...
+5/15/2020,10:55:44,Completed Event Triggered: 0
+5/15/2020,10:55:44,Dfu Characteristic Found, with handle: 29
+5/15/2020,10:55:44,RX Characteristic Found, with handle: 33
+5/15/2020,10:55:44,TX Characteristic Found, with handle: 35
+5/15/2020,10:55:44,TX Characteristic Config Found, with handle: 36
+5/15/2020,10:55:44,Completed Event Triggered: 37
+5/15/2020,10:55:45,Send Command: 01-00
+5/15/2020,10:55:45,Completed Event Triggered: 36
+5/15/2020,10:55:45,Send Command: AA-29-42-11-03-3C-78-0A-14-00-00-00-00-00-00-02-D0-00-00-00
+5/15/2020,10:55:47,Send Command: 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-EE
+5/15/2020,10:55:48,Send Command: 68
+5/15/2020,10:55:49,Completed Event Triggered: 33
+5/15/2020,10:55:49,Completed Event Triggered: 33
+5/15/2020,10:55:49,Completed Event Triggered: 33
+5/15/2020,10:55:49,Length: 5, Bluetooth attribute output: AA-05-42-CF-A5
+5/15/2020,10:55:50,Send Command: AA-16-45-00-00-27-60-05-A0-00-00-00-00-30-05-05-C8-00-C8-00
+5/15/2020,10:55:52,Send Command: A2-5D
+5/15/2020,10:55:53,Completed Event Triggered: 33
+5/15/2020,10:55:53,Completed Event Triggered: 33
+5/15/2020,10:55:53,Length: 5, Bluetooth attribute output: AA-05-45-70-D1
+5/15/2020,10:55:54,Send Command: AA-16-47-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20
+5/15/2020,10:55:55,Send Command: 2A-76
+5/15/2020,10:55:56,Completed Event Triggered: 33
+5/15/2020,10:55:56,Completed Event Triggered: 33
+5/15/2020,10:55:56,Length: 5, Bluetooth attribute output: AA-05-47-62-F2
+5/15/2020,10:55:57,Send Command: AA-09-23-02-08-02-00-93-14
+5/15/2020,10:55:58,Completed Event Triggered: 33
+5/15/2020,10:55:58,Length: 5, Bluetooth attribute output: AA-05-23-40-D7
+5/15/2020,10:55:59,Send Command: AA-06-CE-00-2E-04
+5/15/2020,10:56:00,Completed Event Triggered: 33
+5/15/2020,10:56:00,Length: 5, Bluetooth attribute output: AA-05-CE-AB-EB
+5/15/2020,10:56:01,Send Command: AA-06-CC-00-9E-37
+5/15/2020,10:56:02,Completed Event Triggered: 33
+5/15/2020,10:56:02,Length: 5, Bluetooth attribute output: AA-05-CC-B9-C8
+5/15/2020,10:56:03,Send Command: AA-05-D1-DD-03
+5/15/2020,10:56:04,Disconnecting the device...
+5/15/2020,10:56:04,Completed Event Triggered: 33
+5/15/2020,10:56:04,Length: 5, Bluetooth attribute output: AA-05-FF-A1-CB
+5/15/2020,10:56:04,Successfully Programmed: 3314684 via Bluetooth
+5/15/2020,10:56:07,Close Bluegiga BLE Dongle COM Port: COM5
+5/15/2020,10:57:39,About to write fileWriteBuffer: ac 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 02 08 02 00 00 00 01 2f e2 d1 
+5/15/2020,11:03:04,Start Scanning Nearby Bluetooth Peripherals
+5/15/2020,11:03:04,Search for Bluegiga BLE Dongle
+5/15/2020,11:03:04,Bluegiga BLE Dongle Detected
+5/15/2020,11:03:04,Open Bluegiga BLE Dongle COM Port: COM5
+5/15/2020,11:03:20,Stop Scanning Nearby Bluetooth Peripherals
+5/15/2020,11:03:20,ble_evt_connection_status: connection=0, flags=5, address=[ 92 3d f1 ef 8d c0 ], address_type=1, conn_interval=36, timeout=256, latency=0, bonding=255
+
+5/15/2020,11:03:22,Connected, Now performing service discovery...
+5/15/2020,11:03:22,Completed Event Triggered: 0
+5/15/2020,11:03:22,Dfu Characteristic Found, with handle: 29
+5/15/2020,11:03:22,RX Characteristic Found, with handle: 33
+5/15/2020,11:03:22,TX Characteristic Found, with handle: 35
+5/15/2020,11:03:23,TX Characteristic Config Found, with handle: 36
+5/15/2020,11:03:23,Completed Event Triggered: 37
+5/15/2020,11:03:23,Send Command: 01-00
+5/15/2020,11:03:23,Completed Event Triggered: 36
+5/15/2020,11:03:24,Send Command: AA-29-42-11-03-3C-78-0A-14-00-00-00-00-00-00-02-D0-00-00-00
+5/15/2020,11:03:25,Send Command: 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-EE
+5/15/2020,11:03:27,Send Command: 68
+5/15/2020,11:03:28,Completed Event Triggered: 33
+5/15/2020,11:03:28,Completed Event Triggered: 33
+5/15/2020,11:03:28,Completed Event Triggered: 33
+5/15/2020,11:03:28,Length: 5, Bluetooth attribute output: AA-05-42-CF-A5
+5/15/2020,11:03:29,Send Command: AA-16-45-00-00-27-60-05-A0-00-00-00-00-30-05-05-C8-00-C8-00
+5/15/2020,11:03:30,Send Command: A2-5D
+5/15/2020,11:03:31,Completed Event Triggered: 33
+5/15/2020,11:03:31,Completed Event Triggered: 33
+5/15/2020,11:03:31,Length: 5, Bluetooth attribute output: AA-05-45-70-D1
+5/15/2020,11:03:32,Send Command: AA-16-47-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-20
+5/15/2020,11:03:34,Send Command: 2A-76
+5/15/2020,11:03:35,Completed Event Triggered: 33
+5/15/2020,11:03:35,Completed Event Triggered: 33
+5/15/2020,11:03:35,Length: 5, Bluetooth attribute output: AA-05-47-62-F2
+5/15/2020,11:03:36,Send Command: AA-09-23-02-08-02-00-93-14
+5/15/2020,11:03:37,Completed Event Triggered: 33
+5/15/2020,11:03:37,Length: 5, Bluetooth attribute output: AA-05-23-40-D7
+5/15/2020,11:03:38,Send Command: AA-06-CE-00-2E-04
+5/15/2020,11:03:39,Completed Event Triggered: 33
+5/15/2020,11:03:39,Length: 5, Bluetooth attribute output: AA-05-CE-AB-EB
+5/15/2020,11:03:40,Send Command: AA-06-CC-00-9E-37
+5/15/2020,11:03:41,Completed Event Triggered: 33
+5/15/2020,11:03:41,Length: 5, Bluetooth attribute output: AA-05-CC-B9-C8
+5/15/2020,11:03:42,Send Command: AA-05-D1-DD-03
+5/15/2020,11:03:43,Disconnecting the device...
+5/15/2020,11:03:43,Completed Event Triggered: 33
+5/15/2020,11:03:43,Length: 5, Bluetooth attribute output: AA-05-D1-DD-03
+5/15/2020,11:03:43,Successfully Programmed: 3314684 via Bluetooth
+5/15/2020,11:03:46,Close Bluegiga BLE Dongle COM Port: COM5
+5/15/2020,11:04:52,About to write fileWriteBuffer: ac 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 02 08 02 00 00 00 01 2f e2 d1 
+5/15/2020,11:05:10,Program Version: 3.4.25  | Serial ports: 1
+5/15/2020,11:05:10,queryESN ports: 1
+5/15/2020,11:05:15,SmartOneSolar Detected
+5/15/2020,11:05:15,ListViewItem 7877| 3303450 :: 1.7.0 - COM4 -- 9600
+5/15/2020,11:05:45,Program Version: 3.4.25  | Serial ports: 2
+5/15/2020,11:05:45,queryESN ports: 2
+5/15/2020,11:05:50,SmartOneSolar Detected
+5/15/2020,11:05:50,ListViewItem 7877| 3314684 :: 1.7.0 - COM3 -- 9600
+5/15/2020,11:05:55,SmartOneSolar Detected
+5/15/2020,11:05:55,ListViewItem 7877| 3303450 :: 1.7.0 - COM4 -- 9600
+5/15/2020,11:06:02,------------------------------------Starting Programming------------------------------------------
+5/15/2020,11:06:02,Getting com ports.
+5/15/2020,11:06:02,We have 2 com ports with 2 ESNs
+5/15/2020,11:06:02,-------------------------------------------------Working with com port COM3---------------------------------------------------------------
+5/15/2020,11:06:09,Writing Command wake up: aa 05 01 50 d5 
+5/15/2020,11:06:09,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:06:16,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,11:06:16,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:06:16,817|False|aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:06:16,818| Successfully queried the ESN 3314684 on: COM3
+5/15/2020,11:06:16,ESNFormat is correct.
+5/15/2020,11:06:16,Performing ProgrammingData.gemOpCfg writeup.
+5/15/2020,11:06:22,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/15/2020,11:06:22,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:06:22,ProgrammingData.gemOpCfg is successfully written.
+5/15/2020,11:06:22,Performing ProgrammingData.motCfg writeup.
+5/15/2020,11:06:28,Writing Command motCgcC: aa 16 45 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 a2 5d 
+5/15/2020,11:06:28,Correct response received: aa 05 45 70 d1 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:06:28,ProgrammingData.motCfgC is successfully written.
+5/15/2020,11:06:28,Performing ProgrammingData.accumCountConfig writeup.
+5/15/2020,11:06:34,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:06:35,Correct response received: aa 05 47 62 f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:06:35,ProgrammingData.accumCountConfig is successfully written.
+5/15/2020,11:06:35,Performing ProgrammingData.AccConfig writeup.
+5/15/2020,11:06:41,Writing Command AccConfig: aa 09 23 02 08 02 00 93 14 
+5/15/2020,11:06:41,Correct response received: aa 05 23 40 d7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:06:41,ProgrammingData.AccConfig is successfully written.
+5/15/2020,11:06:41,Performing ProgrammingData.SpeedAndHeadingConfig writeup.
+5/15/2020,11:06:47,Writing Command SpeedAndHeadingConfig: aa 06 ce 00 2e 04 
+5/15/2020,11:06:47,Correct response received: aa 05 ce ab eb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:06:47,ProgrammingData.SpeedAndHeadingConfig is successfully written.
+5/15/2020,11:06:47,Performing ProgrammingData.PowerOnOffConfig writeup.
+5/15/2020,11:06:53,Writing Command PowerOnOffConfig: aa 06 cc 00 9e 37 
+5/15/2020,11:06:53,Correct response received: aa 05 cc b9 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:06:53,ProgrammingData.PowerOnOffConfig is successfully written.
+5/15/2020,11:06:53,SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND writeup.
+5/15/2020,11:07:00,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/15/2020,11:07:00,Reply received has corrupted command code.
+5/15/2020,11:07:00,CRC didn't match of response received: aa 05 ff a1 cb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:07:06,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/15/2020,11:07:06,Reply received has corrupted command code.
+5/15/2020,11:07:06,CRC didn't match of response received: aa 05 ff a1 cb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:07:12,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/15/2020,11:07:12,Reply received has corrupted command code.
+5/15/2020,11:07:12,CRC didn't match of response received: aa 05 ff a1 cb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:07:18,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/15/2020,11:07:18,Reply received has corrupted command code.
+5/15/2020,11:07:18,CRC didn't match of response received: aa 05 ff a1 cb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:07:18,Written all the commands. 
+5/15/2020,11:07:18,This should be the last step of the programming process.
+5/15/2020,11:07:25,Writing Command softwareReset: aa 05 ed 32 f8 
+5/15/2020,11:07:25,Device is now reset.
+5/15/2020,11:07:26,-------------------------------------------------Working with com port COM4---------------------------------------------------------------
+5/15/2020,11:07:32,Writing Command wake up: aa 05 01 50 d5 
+5/15/2020,11:07:32,Correct response received: aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:07:39,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,11:07:39,Correct response received: aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:07:39,817|False|aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:07:39,818| Successfully queried the ESN 3303450 on: COM4
+5/15/2020,11:07:39,ESNFormat is correct.
+5/15/2020,11:07:39,Performing ProgrammingData.gemOpCfg writeup.
+5/15/2020,11:07:45,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/15/2020,11:07:45,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:07:45,ProgrammingData.gemOpCfg is successfully written.
+5/15/2020,11:07:45,Performing ProgrammingData.motCfg writeup.
+5/15/2020,11:07:51,Writing Command motCgcC: aa 16 45 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 a2 5d 
+5/15/2020,11:07:51,Correct response received: aa 05 45 70 d1 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:07:51,ProgrammingData.motCfgC is successfully written.
+5/15/2020,11:07:51,Performing ProgrammingData.accumCountConfig writeup.
+5/15/2020,11:07:58,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:07:58,Correct response received: aa 05 47 62 f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:07:58,ProgrammingData.accumCountConfig is successfully written.
+5/15/2020,11:07:58,Performing ProgrammingData.AccConfig writeup.
+5/15/2020,11:08:04,Writing Command AccConfig: aa 09 23 02 08 02 00 93 14 
+5/15/2020,11:08:04,Correct response received: aa 05 23 40 d7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:08:04,ProgrammingData.AccConfig is successfully written.
+5/15/2020,11:08:04,Performing ProgrammingData.SpeedAndHeadingConfig writeup.
+5/15/2020,11:08:10,Writing Command SpeedAndHeadingConfig: aa 06 ce 00 2e 04 
+5/15/2020,11:08:10,Correct response received: aa 05 ce ab eb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:08:10,ProgrammingData.SpeedAndHeadingConfig is successfully written.
+5/15/2020,11:08:10,Performing ProgrammingData.PowerOnOffConfig writeup.
+5/15/2020,11:08:16,Writing Command PowerOnOffConfig: aa 06 cc 00 9e 37 
+5/15/2020,11:08:16,Correct response received: aa 05 cc b9 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:08:17,ProgrammingData.PowerOnOffConfig is successfully written.
+5/15/2020,11:08:17,SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND writeup.
+5/15/2020,11:08:23,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/15/2020,11:08:23,Correct response received: aa 05 d1 dd 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:08:23,Written all the commands. 
+5/15/2020,11:08:23,This should be the last step of the programming process.
+5/15/2020,11:08:29,Writing Command softwareReset: aa 05 ed 32 f8 
+5/15/2020,11:08:29,Device is now reset.
+5/15/2020,11:08:30,Successfully queried all the ESNs.
+5/15/2020,11:08:48,About to write fileWriteBuffer: ac 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 02 08 02 00 00 00 01 2f e2 d1 
+5/15/2020,11:08:48,About to write fileWriteBuffer: ac 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 27 60 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 02 08 02 00 00 00 01 2f e2 d1 
+5/15/2020,11:41:02,Program Version: 3.4.25  | Serial ports: 1
+5/15/2020,11:41:02,queryESN ports: 1
+5/15/2020,11:41:08,SmartOneSolar Detected
+5/15/2020,11:41:08,ListViewItem 7877| 3314684 :: 1.7.0 - COM3 -- 9600
+5/15/2020,11:41:34,Program Version: 3.4.25  | Serial ports: 1
+5/15/2020,11:41:34,queryESN ports: 1
+5/15/2020,11:41:39,SmartOneSolar Detected
+5/15/2020,11:41:39,ListViewItem 7877| 3314684 :: 1.7.0 - COM3 -- 9600
+5/15/2020,11:41:48,Program Version: 3.4.25  | Serial ports: 2
+5/15/2020,11:41:48,queryESN ports: 2
+5/15/2020,11:41:56,SmartOneSolar Detected
+5/15/2020,11:41:56,ListViewItem 7877| 3314684 :: 1.7.0 - COM3 -- 9600
+5/15/2020,11:42:01,SmartOneSolar Detected
+5/15/2020,11:42:01,ListViewItem 7877| 3303450 :: 1.7.0 - COM4 -- 9600
+5/15/2020,11:42:14,------------------------------------Starting Programming------------------------------------------
+5/15/2020,11:42:14,Getting com ports.
+5/15/2020,11:42:14,We have 2 com ports with 2 ESNs
+5/15/2020,11:42:14,-------------------------------------------------Working with com port COM3---------------------------------------------------------------
+5/15/2020,11:42:20,Writing Command wake up: aa 05 01 50 d5 
+5/15/2020,11:42:20,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:42:27,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,11:42:27,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:42:27,817|False|aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:42:27,818| Successfully queried the ESN 3314684 on: COM3
+5/15/2020,11:42:27,ESNFormat is correct.
+5/15/2020,11:42:27,Performing ProgrammingData.gemOpCfg writeup.
+5/15/2020,11:42:33,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/15/2020,11:42:33,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:42:33,ProgrammingData.gemOpCfg is successfully written.
+5/15/2020,11:42:33,Performing ProgrammingData.motCfg writeup.
+5/15/2020,11:42:39,Writing Command motCgcC: aa 16 45 00 0a a8 c0 05 a0 00 00 00 00 90 05 05 c8 00 c8 00 68 41 
+5/15/2020,11:42:40,Correct response received: aa 05 45 70 d1 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:42:40,ProgrammingData.motCfgC is successfully written.
+5/15/2020,11:42:40,Performing ProgrammingData.accumCountConfig writeup.
+5/15/2020,11:42:46,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:42:46,Correct response received: aa 05 47 62 f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:42:46,ProgrammingData.accumCountConfig is successfully written.
+5/15/2020,11:42:46,Performing ProgrammingData.AccConfig writeup.
+5/15/2020,11:42:52,Writing Command AccConfig: aa 09 23 02 08 02 00 93 14 
+5/15/2020,11:42:52,Correct response received: aa 05 23 40 d7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:42:52,ProgrammingData.AccConfig is successfully written.
+5/15/2020,11:42:52,Performing ProgrammingData.SpeedAndHeadingConfig writeup.
+5/15/2020,11:42:58,Writing Command SpeedAndHeadingConfig: aa 06 ce 00 2e 04 
+5/15/2020,11:42:58,Correct response received: aa 05 ce ab eb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:42:58,ProgrammingData.SpeedAndHeadingConfig is successfully written.
+5/15/2020,11:42:58,Performing ProgrammingData.PowerOnOffConfig writeup.
+5/15/2020,11:43:05,Writing Command PowerOnOffConfig: aa 06 cc 00 9e 37 
+5/15/2020,11:43:05,Correct response received: aa 05 cc b9 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:43:05,ProgrammingData.PowerOnOffConfig is successfully written.
+5/15/2020,11:43:05,SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND writeup.
+5/15/2020,11:43:11,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/15/2020,11:43:11,Correct response received: aa 05 d1 dd 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:43:11,Written all the commands. 
+5/15/2020,11:43:11,This should be the last step of the programming process.
+5/15/2020,11:43:17,Writing Command softwareReset: aa 05 ed 32 f8 
+5/15/2020,11:43:17,Device is now reset.
+5/15/2020,11:43:18,-------------------------------------------------Working with com port COM4---------------------------------------------------------------
+5/15/2020,11:43:24,Writing Command wake up: aa 05 01 50 d5 
+5/15/2020,11:43:24,Correct response received: aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:43:31,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,11:43:31,Correct response received: aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:43:31,817|False|aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:43:31,818| Successfully queried the ESN 3303450 on: COM4
+5/15/2020,11:43:31,ESNFormat is correct.
+5/15/2020,11:43:31,Performing ProgrammingData.gemOpCfg writeup.
+5/15/2020,11:43:38,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/15/2020,11:43:38,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:43:38,ProgrammingData.gemOpCfg is successfully written.
+5/15/2020,11:43:38,Performing ProgrammingData.motCfg writeup.
+5/15/2020,11:43:44,Writing Command motCgcC: aa 16 45 00 0a a8 c0 05 a0 00 00 00 00 90 05 05 c8 00 c8 00 68 41 
+5/15/2020,11:43:44,Correct response received: aa 05 45 70 d1 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:43:44,ProgrammingData.motCfgC is successfully written.
+5/15/2020,11:43:44,Performing ProgrammingData.accumCountConfig writeup.
+5/15/2020,11:43:50,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:43:50,Correct response received: aa 05 47 62 f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:43:50,ProgrammingData.accumCountConfig is successfully written.
+5/15/2020,11:43:50,Performing ProgrammingData.AccConfig writeup.
+5/15/2020,11:43:56,Writing Command AccConfig: aa 09 23 02 08 02 00 93 14 
+5/15/2020,11:43:56,Correct response received: aa 05 23 40 d7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:43:57,ProgrammingData.AccConfig is successfully written.
+5/15/2020,11:43:57,Performing ProgrammingData.SpeedAndHeadingConfig writeup.
+5/15/2020,11:44:03,Writing Command SpeedAndHeadingConfig: aa 06 ce 00 2e 04 
+5/15/2020,11:44:03,Correct response received: aa 05 ce ab eb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:44:03,ProgrammingData.SpeedAndHeadingConfig is successfully written.
+5/15/2020,11:44:03,Performing ProgrammingData.PowerOnOffConfig writeup.
+5/15/2020,11:44:09,Writing Command PowerOnOffConfig: aa 06 cc 00 9e 37 
+5/15/2020,11:44:09,Correct response received: aa 05 cc b9 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:44:09,ProgrammingData.PowerOnOffConfig is successfully written.
+5/15/2020,11:44:09,SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND writeup.
+5/15/2020,11:44:58,Program Version: 3.4.25  | Serial ports: 2
+5/15/2020,11:44:58,queryESN ports: 2
+5/15/2020,11:45:03,SmartOneSolar Detected
+5/15/2020,11:45:03,ListViewItem 7877| 3314684 :: 1.7.0 - COM3 -- 9600
+5/15/2020,11:45:08,SmartOneSolar Detected
+5/15/2020,11:45:08,ListViewItem 7877| 3303450 :: 1.7.0 - COM4 -- 9600
+5/15/2020,11:46:05,------------------------------------Starting Programming------------------------------------------
+5/15/2020,11:46:05,Getting com ports.
+5/15/2020,11:46:05,We have 2 com ports with 2 ESNs
+5/15/2020,11:46:05,-------------------------------------------------Working with com port COM3---------------------------------------------------------------
+5/15/2020,11:46:11,Writing Command wake up: aa 05 01 50 d5 
+5/15/2020,11:46:11,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:46:18,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,11:46:18,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:46:18,817|False|aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:46:18,818| Successfully queried the ESN 3314684 on: COM3
+5/15/2020,11:46:18,ESNFormat is correct.
+5/15/2020,11:46:18,Performing ProgrammingData.gemOpCfg writeup.
+5/15/2020,11:46:24,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/15/2020,11:46:24,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:46:24,ProgrammingData.gemOpCfg is successfully written.
+5/15/2020,11:46:24,Performing ProgrammingData.motCfg writeup.
+5/15/2020,11:46:31,Writing Command motCgcC: aa 16 45 00 0a a8 c0 05 a0 00 00 00 00 90 05 05 c8 00 c8 00 68 41 
+5/15/2020,11:46:31,Correct response received: aa 05 45 70 d1 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:46:31,ProgrammingData.motCfgC is successfully written.
+5/15/2020,11:46:31,Performing ProgrammingData.accumCountConfig writeup.
+5/15/2020,11:46:37,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:46:37,Correct response received: aa 05 47 62 f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:46:37,ProgrammingData.accumCountConfig is successfully written.
+5/15/2020,11:46:37,Performing ProgrammingData.AccConfig writeup.
+5/15/2020,11:46:43,Writing Command AccConfig: aa 09 23 02 08 02 00 93 14 
+5/15/2020,11:46:43,Correct response received: aa 05 23 40 d7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:46:43,ProgrammingData.AccConfig is successfully written.
+5/15/2020,11:46:43,Performing ProgrammingData.SpeedAndHeadingConfig writeup.
+5/15/2020,11:46:49,Writing Command SpeedAndHeadingConfig: aa 06 ce 00 2e 04 
+5/15/2020,11:46:49,Correct response received: aa 05 ce ab eb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:46:50,ProgrammingData.SpeedAndHeadingConfig is successfully written.
+5/15/2020,11:46:50,Performing ProgrammingData.PowerOnOffConfig writeup.
+5/15/2020,11:46:56,Writing Command PowerOnOffConfig: aa 06 cc 00 9e 37 
+5/15/2020,11:46:56,Correct response received: aa 05 cc b9 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:46:56,ProgrammingData.PowerOnOffConfig is successfully written.
+5/15/2020,11:46:56,SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND writeup.
+5/15/2020,11:47:02,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/15/2020,11:47:02,Correct response received: aa 05 d1 dd 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:47:02,Written all the commands. 
+5/15/2020,11:47:02,This should be the last step of the programming process.
+5/15/2020,11:47:08,Writing Command softwareReset: aa 05 ed 32 f8 
+5/15/2020,11:47:08,Device is now reset.
+5/15/2020,11:47:09,-------------------------------------------------Working with com port COM4---------------------------------------------------------------
+5/15/2020,11:47:16,Writing Command wake up: aa 05 01 50 d5 
+5/15/2020,11:47:16,Correct response received: aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:47:22,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,11:47:22,Correct response received: aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:47:22,817|False|aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:47:22,818| Successfully queried the ESN 3303450 on: COM4
+5/15/2020,11:47:22,ESNFormat is correct.
+5/15/2020,11:47:22,Performing ProgrammingData.gemOpCfg writeup.
+5/15/2020,11:47:29,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/15/2020,11:47:29,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:47:29,ProgrammingData.gemOpCfg is successfully written.
+5/15/2020,11:47:29,Performing ProgrammingData.motCfg writeup.
+5/15/2020,11:47:35,Writing Command motCgcC: aa 16 45 00 0a a8 c0 05 a0 00 00 00 00 90 05 05 c8 00 c8 00 68 41 
+5/15/2020,11:47:35,Correct response received: aa 05 45 70 d1 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:47:35,ProgrammingData.motCfgC is successfully written.
+5/15/2020,11:47:35,Performing ProgrammingData.accumCountConfig writeup.
+5/15/2020,11:47:41,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:47:41,Correct response received: aa 05 47 62 f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:47:41,ProgrammingData.accumCountConfig is successfully written.
+5/15/2020,11:47:41,Performing ProgrammingData.AccConfig writeup.
+5/15/2020,11:47:47,Writing Command AccConfig: aa 09 23 02 08 02 00 93 14 
+5/15/2020,11:47:48,Correct response received: aa 05 23 40 d7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:47:48,ProgrammingData.AccConfig is successfully written.
+5/15/2020,11:47:48,Performing ProgrammingData.SpeedAndHeadingConfig writeup.
+5/15/2020,11:47:54,Writing Command SpeedAndHeadingConfig: aa 06 ce 00 2e 04 
+5/15/2020,11:47:54,Correct response received: aa 05 ce ab eb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:47:54,ProgrammingData.SpeedAndHeadingConfig is successfully written.
+5/15/2020,11:47:54,Performing ProgrammingData.PowerOnOffConfig writeup.
+5/15/2020,11:48:00,Writing Command PowerOnOffConfig: aa 06 cc 00 9e 37 
+5/15/2020,11:48:00,Correct response received: aa 05 cc b9 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:48:00,ProgrammingData.PowerOnOffConfig is successfully written.
+5/15/2020,11:48:00,SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND writeup.
+5/15/2020,11:48:06,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/15/2020,11:48:06,Correct response received: aa 05 d1 dd 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:48:06,Written all the commands. 
+5/15/2020,11:48:06,This should be the last step of the programming process.
+5/15/2020,11:48:13,Writing Command softwareReset: aa 05 ed 32 f8 
+5/15/2020,11:48:13,Device is now reset.
+5/15/2020,11:48:14,Successfully queried all the ESNs.
+5/15/2020,11:48:20,About to write fileWriteBuffer: ac 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0a a8 c0 05 a0 00 00 00 00 b0 05 05 c8 00 c8 00 00 0a a8 c0 05 a0 00 00 00 00 90 05 05 c8 00 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 02 08 02 00 00 00 01 74 2e 0b 
+5/15/2020,11:48:20,About to write fileWriteBuffer: ac 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0a a8 c0 05 a0 00 00 00 00 b0 05 05 c8 00 c8 00 00 0a a8 c0 05 a0 00 00 00 00 90 05 05 c8 00 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 02 08 02 00 00 00 01 74 2e 0b 
+5/15/2020,11:48:27,Program Version: 3.4.25  | Serial ports: 2
+5/15/2020,11:48:27,queryESN ports: 2
+5/15/2020,11:48:32,SmartOneSolar Detected
+5/15/2020,11:48:32,ListViewItem 7877| 3314684 :: 1.7.0 - COM3 -- 9600
+5/15/2020,11:48:37,SmartOneSolar Detected
+5/15/2020,11:48:37,ListViewItem 7877| 3303450 :: 1.7.0 - COM4 -- 9600
+5/15/2020,11:49:19,------------------------------------Starting Programming------------------------------------------
+5/15/2020,11:49:19,Getting com ports.
+5/15/2020,11:49:19,Total Com Ports: 1
+5/15/2020,11:49:19,-------------------------------------------------Working with com port COM3---------------------------------------------------------------
+5/15/2020,11:49:26,Writing Command Running Query ESN Command: aa 05 01 50 d5 
+5/15/2020,11:49:28,Exception caught: The operation has timed out.
+5/15/2020,11:49:34,Writing Command Running Query ESN Command: aa 05 01 50 d5 
+5/15/2020,11:49:36,Exception caught: The operation has timed out.
+5/15/2020,11:49:42,Writing Command Running Query ESN Command: aa 05 01 50 d5 
+5/15/2020,11:49:44,Exception caught: The operation has timed out.
+5/15/2020,11:49:50,Writing Command Running Query ESN Command: aa 05 01 50 d5 
+5/15/2020,11:49:52,Exception caught: The operation has timed out.
+5/15/2020,11:49:52,ESN Received: 0
+5/15/2020,11:49:52,ESN Received is not right
+5/15/2020,11:49:58,Program Version: 3.4.25  | Serial ports: 2
+5/15/2020,11:49:58,queryESN ports: 2
+5/15/2020,11:50,|7915| Exception -> The operation has timed out.,COM3
+5/15/2020,11:50:08,SmartOneSolar Detected
+5/15/2020,11:50:08,ListViewItem 7877| 3303450 :: 1.7.0 - COM4 -- 9600
+5/15/2020,11:50,|7896| Exception -> The operation has timed out.,COM3
+5/15/2020,11:50,|7896| Exception -> The operation has timed out.,COM3
+5/15/2020,11:50:25,------------------------------------Starting Programming------------------------------------------
+5/15/2020,11:50:25,Getting com ports.
+5/15/2020,11:50:25,Total Com Ports: 1
+5/15/2020,11:50:25,-------------------------------------------------Working with com port COM4---------------------------------------------------------------
+5/15/2020,11:50:31,Writing Command Running Query ESN Command: aa 05 01 50 d5 
+5/15/2020,11:50:31,Correct response received: aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:50:31,ESN Received: 3303450
+5/15/2020,11:50:31,ESN: 3303450 is still connected to: COM4
+5/15/2020,11:50:37,Writing Command Reading Op Configuration.: aa 05 43 46 b4 
+5/15/2020,11:50:37,Correct response received: aa 29 43 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 b1 d2 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:50:37,UI is now set with the Operational Parameters. 
+5/15/2020,11:50:44,Writing Command Reading Motion Col Parameters.: aa 05 46 eb e3 
+5/15/2020,11:50:44,Correct response received: aa 16 46 00 0a a8 c0 05 a0 00 00 00 00 90 05 05 c8 00 c8 00 50 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:50:44,UI is now set with the Motion Parameters. 
+5/15/2020,11:50:50,Writing Command Reading Acc Cnt Parameter.: aa 05 48 95 0a 
+5/15/2020,11:50:50,Correct response received: aa 16 48 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 f2 73 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:50:50,UI is now set with the Acc Cnt Parameters.
+5/15/2020,11:50:56,Writing Command Reading Acelerometer Sensitivity Parameters.: aa 05 24 ff a3 
+5/15/2020,11:50:56,Correct response received: aa 09 24 02 08 02 00 4f 24 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:50:56,UI is now set with the Acc Sensitivity Parameters.
+5/15/2020,11:51:02,Writing Command Reading Speed and Heading Parameters.: aa 05 cf 22 fa 
+5/15/2020,11:51:02,Correct response received: aa 06 cf 00 f6 1d 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:51:03,UI is now set with the Speed and Heading Parameters: 0
+5/15/2020,11:51:09,Writing Command Reading PowerOnOff Config.: aa 05 cd 30 d9 
+5/15/2020,11:51:09,Correct response received: aa 06 cd 00 46 2e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:51:09, |1400| 2|8|2|0|4||||144
+5/15/2020,11:51:26,Program Version: 3.4.25  | Serial ports: 2
+5/15/2020,11:51:26,queryESN ports: 2
+5/15/2020,11:51:31,SmartOneSolar Detected
+5/15/2020,11:51:31,ListViewItem 7877| 3314684 :: 1.7.0 - COM3 -- 9600
+5/15/2020,11:51:36,SmartOneSolar Detected
+5/15/2020,11:51:36,ListViewItem 7877| 3303450 :: 1.7.0 - COM4 -- 9600
+5/15/2020,11:51:45,------------------------------------Starting Programming------------------------------------------
+5/15/2020,11:51:45,Getting com ports.
+5/15/2020,11:51:45,Total Com Ports: 1
+5/15/2020,11:51:45,-------------------------------------------------Working with com port COM3---------------------------------------------------------------
+5/15/2020,11:51:51,Writing Command Running Query ESN Command: aa 05 01 50 d5 
+5/15/2020,11:51:51,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:51:51,ESN Received: 3314684
+5/15/2020,11:51:51,ESN: 3314684 is still connected to: COM3
+5/15/2020,11:51:57,Writing Command Reading Op Configuration.: aa 05 43 46 b4 
+5/15/2020,11:51:57,Correct response received: aa 29 43 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 b1 d2 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:51:57,UI is now set with the Operational Parameters. 
+5/15/2020,11:52:03,Writing Command Reading Motion Col Parameters.: aa 05 46 eb e3 
+5/15/2020,11:52:03,Correct response received: aa 16 46 00 0a a8 c0 05 a0 00 00 00 00 90 05 05 c8 00 c8 00 50 40 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:52:03,UI is now set with the Motion Parameters. 
+5/15/2020,11:52:10,Writing Command Reading Acc Cnt Parameter.: aa 05 48 95 0a 
+5/15/2020,11:52:10,Correct response received: aa 16 48 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 f2 73 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:52:10,UI is now set with the Acc Cnt Parameters.
+5/15/2020,11:52:16,Writing Command Reading Acelerometer Sensitivity Parameters.: aa 05 24 ff a3 
+5/15/2020,11:52:16,Correct response received: aa 09 24 02 08 02 00 4f 24 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:52:16,UI is now set with the Acc Sensitivity Parameters.
+5/15/2020,11:52:22,Writing Command Reading Speed and Heading Parameters.: aa 05 cf 22 fa 
+5/15/2020,11:52:22,Correct response received: aa 06 cf 00 f6 1d 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:52:22,UI is now set with the Speed and Heading Parameters: 0
+5/15/2020,11:52:28,Writing Command Reading PowerOnOff Config.: aa 05 cd 30 d9 
+5/15/2020,11:52:28,Correct response received: aa 06 cd 00 46 2e 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:52:29, |1400| 2|8|2|0|4||||144
+5/15/2020,11:54:18,Program Version: 3.4.25  | Serial ports: 2
+5/15/2020,11:54:18,queryESN ports: 2
+5/15/2020,11:54:23,SmartOneSolar Detected
+5/15/2020,11:54:23,ListViewItem 7877| 3314684 :: 1.7.0 - COM3 -- 9600
+5/15/2020,11:54:28,SmartOneSolar Detected
+5/15/2020,11:54:28,ListViewItem 7877| 3303450 :: 1.7.0 - COM4 -- 9600
+5/15/2020,11:54:35,abort button clicked
+5/15/2020,11:54:35,ProgrammingStatus.GetHasStarted() False
+5/15/2020,11:54:52,Program Version: 3.4.25  | Serial ports: 2
+5/15/2020,11:54:52,queryESN ports: 2
+5/15/2020,11:54:56,SmartOneSolar Detected
+5/15/2020,11:54:56,ListViewItem 7877| 3314684 :: 1.7.0 - COM3 -- 9600
+5/15/2020,11:55:01,SmartOneSolar Detected
+5/15/2020,11:55:01,ListViewItem 7877| 3303450 :: 1.7.0 - COM4 -- 9600
+5/15/2020,11:55:11,------------------------------------Starting Programming------------------------------------------
+5/15/2020,11:55:11,Getting com ports.
+5/15/2020,11:55:11,We have 2 com ports with 2 ESNs
+5/15/2020,11:55:11,-------------------------------------------------Working with com port COM3---------------------------------------------------------------
+5/15/2020,11:55:18,Writing Command wake up: aa 05 01 50 d5 
+5/15/2020,11:55:18,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:55:24,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,11:55:24,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:55:24,817|False|aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:55:24,818| Successfully queried the ESN 3314684 on: COM3
+5/15/2020,11:55:24,ESNFormat is correct.
+5/15/2020,11:55:24,Performing ProgrammingData.gemOpCfg writeup.
+5/15/2020,11:55:31,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/15/2020,11:55:31,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:55:31,ProgrammingData.gemOpCfg is successfully written.
+5/15/2020,11:55:31,Performing ProgrammingData.motCfg writeup.
+5/15/2020,11:55:37,Writing Command motCgcC: aa 16 45 00 00 a8 c0 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 03 e0 
+5/15/2020,11:55:37,Correct response received: aa 05 45 70 d1 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:55:37,ProgrammingData.motCfgC is successfully written.
+5/15/2020,11:55:37,Performing ProgrammingData.accumCountConfig writeup.
+5/15/2020,11:55:43,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:55:43,Correct response received: aa 05 47 62 f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:55:43,ProgrammingData.accumCountConfig is successfully written.
+5/15/2020,11:55:43,Performing ProgrammingData.AccConfig writeup.
+5/15/2020,11:55:50,Writing Command AccConfig: aa 09 23 02 08 02 00 93 14 
+5/15/2020,11:55:50,Correct response received: aa 05 23 40 d7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:55:50,ProgrammingData.AccConfig is successfully written.
+5/15/2020,11:55:50,Performing ProgrammingData.SpeedAndHeadingConfig writeup.
+5/15/2020,11:55:56,Writing Command SpeedAndHeadingConfig: aa 06 ce 01 a7 15 
+5/15/2020,11:55:56,Correct response received: aa 05 ce ab eb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:55:56,ProgrammingData.SpeedAndHeadingConfig is successfully written.
+5/15/2020,11:55:56,Performing ProgrammingData.PowerOnOffConfig writeup.
+5/15/2020,11:56:02,Writing Command PowerOnOffConfig: aa 06 cc 00 9e 37 
+5/15/2020,11:56:02,Correct response received: aa 05 cc b9 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:56:02,ProgrammingData.PowerOnOffConfig is successfully written.
+5/15/2020,11:56:02,SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND writeup.
+5/15/2020,11:56:08,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/15/2020,11:56:08,Correct response received: aa 05 d1 dd 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:56:08,Written all the commands. 
+5/15/2020,11:56:08,This should be the last step of the programming process.
+5/15/2020,11:56:15,Writing Command softwareReset: aa 05 ed 32 f8 
+5/15/2020,11:56:15,Device is now reset.
+5/15/2020,11:56:16,-------------------------------------------------Working with com port COM4---------------------------------------------------------------
+5/15/2020,11:56:22,Writing Command wake up: aa 05 01 50 d5 
+5/15/2020,11:56:22,Correct response received: aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:56:29,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,11:56:29,Correct response received: aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:56:29,817|False|aa 09 01 00 32 68 1a d6 89 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:56:29,818| Successfully queried the ESN 3303450 on: COM4
+5/15/2020,11:56:29,ESNFormat is correct.
+5/15/2020,11:56:29,Performing ProgrammingData.gemOpCfg writeup.
+5/15/2020,11:56:35,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/15/2020,11:56:35,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:56:35,ProgrammingData.gemOpCfg is successfully written.
+5/15/2020,11:56:35,Performing ProgrammingData.motCfg writeup.
+5/15/2020,11:56:41,Writing Command motCgcC: aa 16 45 00 00 a8 c0 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 03 e0 
+5/15/2020,11:56:42,Correct response received: aa 05 45 70 d1 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,11:56:42,ProgrammingData.motCfgC is successfully written.
+5/15/2020,11:56:42,Performing ProgrammingData.accumCountConfig writeup.
+5/15/2020,11:56:48,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:56:50,|1094| Exception caught: The operation has timed out.
+5/15/2020,11:56:56,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:56:58,|1094| Exception caught: The operation has timed out.
+5/15/2020,11:57:04,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:57:06,|1094| Exception caught: The operation has timed out.
+5/15/2020,11:57:13,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/15/2020,11:57:15,|1094| Exception caught: The operation has timed out.
+5/15/2020,11:57:15,fail() True
+5/15/2020,11:57:16,newLI ListViewItem: {3303450}
+5/15/2020,11:57:16,Successfully queried all the ESNs.
+5/15/2020,11:59:13,About to write fileWriteBuffer: ac 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 a8 c0 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 a8 c0 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 02 08 02 00 01 00 01 9c 9c 20 
+5/15/2020,12:01:18,Program Version: 3.4.25  | Serial ports: 2
+5/15/2020,12:01:19,queryESN ports: 2
+5/15/2020,12:01:24,SmartOneSolar Detected
+5/15/2020,12:01:24,ListViewItem 7877| 3314684 :: 1.7.0 - COM3 -- 9600
+5/15/2020,12:01:29,SmartOneSolar Detected
+5/15/2020,12:01:29,ListViewItem 7877| 3303450 :: 1.7.0 - COM4 -- 9600
+5/15/2020,12:03:18,outsideCOL geminiOperationalConfigParameters.Interval1 0
+5/15/2020,12:03:19,------------------------------------Starting Programming------------------------------------------
+5/15/2020,12:03:19,Getting com ports.
+5/15/2020,12:03:20,We have 2 com ports with 2 ESNs
+5/15/2020,12:03:20,-------------------------------------------------Working with com port COM3---------------------------------------------------------------
+5/15/2020,12:03:26,Writing Command wake up: aa 05 01 50 d5 
+5/15/2020,12:03:26,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,12:03:33,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,12:03:33,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,12:03:33,817|False|aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,12:03:33,818| Successfully queried the ESN 3314684 on: COM3
+5/15/2020,12:03:33,ESNFormat is correct.
+5/15/2020,12:03:33,Performing ProgrammingData.gemOpCfg writeup.
+5/15/2020,12:03:39,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 8b ba 
+5/15/2020,12:03:39,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,12:03:39,ProgrammingData.gemOpCfg is successfully written.
+5/15/2020,12:03:39,Performing ProgrammingData.motCfg writeup.
+5/15/2020,12:03:45,Writing Command motCgcC: aa 16 45 00 3c a8 c0 05 a0 00 00 00 3c 93 05 05 c8 00 c8 01 bf f8 
+5/15/2020,12:03:47,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:03:54,Writing Command motCgcC: aa 16 45 00 3c a8 c0 05 a0 00 00 00 3c 93 05 05 c8 00 c8 01 bf f8 
+5/15/2020,12:03:56,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:04:02,Writing Command motCgcC: aa 16 45 00 3c a8 c0 05 a0 00 00 00 3c 93 05 05 c8 00 c8 01 bf f8 
+5/15/2020,12:04:04,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:04:10,Writing Command motCgcC: aa 16 45 00 3c a8 c0 05 a0 00 00 00 3c 93 05 05 c8 00 c8 01 bf f8 
+5/15/2020,12:04:12,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:04:12,fail() True
+5/15/2020,12:04:13,newLI ListViewItem: {3314684}
+5/15/2020,12:04:13,-------------------------------------------------Working with com port COM4---------------------------------------------------------------
+5/15/2020,12:04:19,Writing Command wake up: aa 05 01 50 d5 
+5/15/2020,12:04:21,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:04:28,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,12:04:30,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:04:36,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,12:04:38,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:04:45,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,12:04:47,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:04:53,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,12:04:55,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:05:01,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,12:05:03,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:05:09,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/15/2020,12:05:11,|1094| Exception caught: The operation has timed out.
+5/15/2020,12:05:12,no esn|00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/15/2020,12:05:12,fail() True
+5/15/2020,12:05:12,newLI ListViewItem: {3303450}
+5/15/2020,12:05:12,Successfully queried all the ESNs.

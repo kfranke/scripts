@@ -1,0 +1,31 @@
+5/8/2020,18:35:05,Program Version: 3.4.2  | Serial ports: 2
+5/8/2020,18:35:05,queryESN ports: 2
+5/8/2020,18:35:10,SmartOneSolar Detected
+5/8/2020,18:35:11,ListViewItem 7877| 3314684 :: 1.7.0 - COM4 -- 9600
+5/8/2020,18:35,|7915| Exception -> The operation has timed out.,COM5
+5/8/2020,18:35,|7896| Exception -> The operation has timed out.,COM5
+5/8/2020,18:35,|7896| Exception -> The operation has timed out.,COM5
+5/8/2020,18:36:01,------------------------------------Starting Programming------------------------------------------
+5/8/2020,18:36:01,Getting com ports.
+5/8/2020,18:36:01,We have 1 com ports with 1 ESNs
+5/8/2020,18:36:01,-------------------------------------------------Working with com port COM4---------------------------------------------------------------
+5/8/2020,18:36:08,Writing Command wake up: aa 05 01 50 d5 
+5/8/2020,18:36:08,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:36:14,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/8/2020,18:36:14,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:36:15,817|False|aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:36:15,818| Successfully queried the ESN 3314684 on: COM4
+5/8/2020,18:36:15,ESNFormat is correct.
+5/8/2020,18:36:15,Performing ProgrammingData.gemOpCfg writeup.
+5/8/2020,18:36:21,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/8/2020,18:36:23,|1094| Exception caught: The operation has timed out.
+5/8/2020,18:36:29,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/8/2020,18:36:31,|1094| Exception caught: The operation has timed out.
+5/8/2020,18:36:37,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/8/2020,18:36:39,|1094| Exception caught: The operation has timed out.
+5/8/2020,18:36:46,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/8/2020,18:36:48,|1094| Exception caught: The operation has timed out.
+5/8/2020,18:36:48,FAIL 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:36:48,fail() True
+5/8/2020,18:36:49,newLI ListViewItem: {3314684}
+5/8/2020,18:36:49,Successfully queried all the ESNs.

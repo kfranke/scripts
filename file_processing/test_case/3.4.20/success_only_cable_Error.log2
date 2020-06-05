@@ -1,0 +1,53 @@
+5/8/2020,18:31:22,Program Version: 3.4.2  | Serial ports: 2
+5/8/2020,18:31:22,queryESN ports: 2
+5/8/2020,18:31,|7915| Exception -> Access to the port 'COM4' is denied.,COM4
+5/8/2020,18:31,|7915| Exception -> The operation has timed out.,COM5
+5/8/2020,18:31:33,SmartOneSolar Detected
+5/8/2020,18:31:33,ListViewItem B| 3314684 :: 1.714 - COM4 -- 9600
+5/8/2020,18:31,|7896| Exception -> The operation has timed out.,COM5
+5/8/2020,18:31,|7896| Exception -> The operation has timed out.,COM5
+5/8/2020,18:32:47,------------------------------------Starting Programming------------------------------------------
+5/8/2020,18:32:47,Getting com ports.
+5/8/2020,18:32:47,We have 1 com ports with 1 ESNs
+5/8/2020,18:32:47,-------------------------------------------------Working with com port COM4---------------------------------------------------------------
+5/8/2020,18:32:53,Writing Command wake up: aa 05 01 50 d5 
+5/8/2020,18:32:53,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:33:00,Writing Command ESN Discovery: aa 05 01 50 d5 
+5/8/2020,18:33:00,Correct response received: aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:33:00,817|False|aa 09 01 00 32 93 fc 4e 93 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:33:00,818| Successfully queried the ESN 3314684 on: COM4
+5/8/2020,18:33:00,ESNFormat is correct.
+5/8/2020,18:33:00,Performing ProgrammingData.gemOpCfg writeup.
+5/8/2020,18:33:06,Writing Command gemOpCfg: aa 29 42 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ee 68 
+5/8/2020,18:33:06,Correct response received: aa 05 42 cf a5 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:33:06,ProgrammingData.gemOpCfg is successfully written.
+5/8/2020,18:33:06,Performing ProgrammingData.motCfg writeup.
+5/8/2020,18:33:13,Writing Command motCgcC: aa 16 45 00 00 a8 c0 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 03 e0 
+5/8/2020,18:33:13,Correct response received: aa 05 45 70 d1 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:33:13,ProgrammingData.motCfgC is successfully written.
+5/8/2020,18:33:13,Performing ProgrammingData.accumCountConfig writeup.
+5/8/2020,18:33:19,Writing Command accumCountConfig: aa 16 47 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 2a 76 
+5/8/2020,18:33:19,Correct response received: aa 05 47 62 f2 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:33:19,ProgrammingData.accumCountConfig is successfully written.
+5/8/2020,18:33:19,Performing ProgrammingData.AccConfig writeup.
+5/8/2020,18:33:25,Writing Command AccConfig: aa 09 23 02 08 02 00 93 14 
+5/8/2020,18:33:25,Correct response received: aa 05 23 40 d7 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:33:25,ProgrammingData.AccConfig is successfully written.
+5/8/2020,18:33:25,Performing ProgrammingData.softwareReset writeup.
+5/8/2020,18:33:25,This should be the last step of the programming process.
+5/8/2020,18:33:32,Writing Command softwareReset: aa 05 ed 32 f8 
+5/8/2020,18:33:32,Device is now reset.
+5/8/2020,18:33:32,Performing ProgrammingData.SpeedAndHeadingConfig writeup.
+5/8/2020,18:33:38,Writing Command SpeedAndHeadingConfig: aa 06 ce 00 2e 04 
+5/8/2020,18:33:38,Correct response received: aa 05 ce ab eb 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:33:38,ProgrammingData.SpeedAndHeadingConfig is successfully written.
+5/8/2020,18:33:38,Performing ProgrammingData.PowerOnOffConfig writeup.
+5/8/2020,18:33:44,Writing Command PowerOnOffConfig: aa 06 cc 00 9e 37 
+5/8/2020,18:33:44,Correct response received: aa 05 cc b9 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:33:44,ProgrammingData.PowerOnOffConfig is successfully written.
+5/8/2020,18:33:44,SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND writeup.
+5/8/2020,18:33:51,Writing Command SMART_ONE_SOLAR_SAVE_CONFIGURATION_COMMAND: aa 05 d1 dd 03 
+5/8/2020,18:33:51,Correct response received: aa 05 d1 dd 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+5/8/2020,18:33:51,Written all the commands. 
+5/8/2020,18:33:52,Successfully queried all the ESNs.
+5/8/2020,18:33:53,About to write fileWriteBuffer: ac 11 03 3c 78 0a 14 00 00 00 00 00 00 02 d0 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 a8 c0 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 a8 c0 05 a0 00 00 00 00 30 05 05 c8 00 c8 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 20 02 08 02 00 00 00 01 52 ff 49 
