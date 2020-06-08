@@ -1,7 +1,7 @@
 <?php
 ini_set("pcre.backtrack_limit", "-1");
 date_default_timezone_set("UTC"); 
-$debug = false;
+$debug = FALSE;
 $runtime = time();
 $output_file = 'device_program_results_'.$runtime.'.csv';
 print("
@@ -98,7 +98,7 @@ if ($handle)
     	
 		$query_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*(33[0-9]{5})/';
 		preg_match($query_ptn, $buffer, $matches);
-		if( count($matches === 3) && isset($matches[1]) && isset($matches[2]) )
+		if( count($matches) === 3 && isset($matches[1]) && isset($matches[2]) )
 		{
 			// add query record and set state to uncertain
 			$ts = strtotime(str_replace(',', ' ', $matches[1]) );
@@ -113,7 +113,7 @@ if ($handle)
     }
     $stats['unique'] = count(array_unique($found));
     print "Found " . $stats['unique'] . " ESN records\n";
-    if($debug) print '$records: '; print_r($records);
+    if($debug) print '$records: ' . print_r($records, true);
     fseek($handle, 0); // rewind
     $contents = fread($handle, filesize($log_file));
     fclose($handle);	
@@ -123,10 +123,10 @@ if ($handle)
 // 6/7/2019,11:11:07,Successfully queried the ESN 3313740 on: COM41... ...Written all the commands
 $pass_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Successfully(?: queried the ESN).*(33[0-9]{5})(?:[\s\S]+?)(Written all the commands)[\s\S]+?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})/';
 preg_match_all($pass_ptn, $contents, $matches);
-print "Regex status: " . array_flip(get_defined_constants(true)['pcre'])[preg_last_error()] . "\n";
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
 print "Found " . count(array_filter($matches[1])) . " passing via cable ESN records\n";
 
-if( count($matches === 5) )
+if( count($matches) === 5 )
 {
 	$successes = array();
 	for ($i=1; $i < count(array_filter($matches)); $i++)
@@ -159,10 +159,10 @@ unset($matches, $successes);
 // 5/8/2020,18:36:15,818| Successfully queried the ESN 3314684 on: COM4... ...fail() True
 $fail_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Successfully(?: queried the ESN).*(33[0-9]{5})(?:[\s\S]+?)(fail\(\) True)[\s\S]+?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})/';
 preg_match_all($fail_ptn, $contents, $matches);
-print "Regex status: " . array_flip(get_defined_constants(true)['pcre'])[preg_last_error()] . "\n";
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
 print "Found " . count(array_filter($matches[1])) . " failing via cable ESN records\n";
 
-if( count($matches === 5) )
+if( count($matches) === 5 )
 {
 	$failures = array();
 	for ($i=1; $i < count(array_filter($matches)); $i++)
@@ -195,10 +195,10 @@ unset($matches, $failures);
 //5/15/2020,12:26:45,Successfully Programmed: 3303450 via Bluetooth
 $pass_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Successfully Programmed.*(33[0-9]{5})(?:[\s\S]+?)(via Bluetooth)[\s\S]+?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})/';
 preg_match_all($pass_ptn, $contents, $matches);
-print "Regex status: " . array_flip(get_defined_constants(true)['pcre'])[preg_last_error()] . "\n";
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
 print "Found " . count(array_filter($matches[1])) . " passing via cable ESN records\n";
 
-if( count($matches === 5) )
+if( count($matches) === 5 )
 {
 	$successes = array();
 	for ($i=1; $i < count(array_filter($matches)); $i++)
@@ -230,10 +230,10 @@ unset($matches, $successes);
 // 5/15/2020,12:08:41,Unable to Program: 3314684 via Bluetooth
 $fail_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Unable to Program.*(33[0-9]{5})(?:[\s\S]+?)(via Bluetooth)[\s\S]+?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})/';
 preg_match_all($fail_ptn, $contents, $matches);
-print "Regex status: " . array_flip(get_defined_constants(true)['pcre'])[preg_last_error()] . "\n";
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
 print "Found " . count(array_filter($matches[1])) . " failing via cable ESN records\n";
 
-if( count($matches === 5) )
+if( count($matches) === 5 )
 {
 	$failures = array();
 	for ($i=1; $i < count(array_filter($matches)); $i++)
@@ -263,7 +263,7 @@ if( isset($failures) && count($failures) > 0 )
 unset($matches, $failures);
 
 print "Updated records with status...\n";
-if($debug) print '$records: '; print_r($records);
+if($debug) print '$records: ' . print_r($records, true);
 
 // loop through records and pull out max timestamp record
 $results = array();
@@ -346,7 +346,7 @@ else
 $data = file_get_contents($output_dir . '/' . $output_file);
 $summary = '';
 foreach ($stats as $key => $value) {
-	$summary .= str_repeat(',', count($columns)+4) . ucfirst($key) . ': ,' . $value . "\n";
+	$summary .= str_repeat(',', count(explode(',', $columns))) . ucfirst($key) . ': ,' . $value . "\n";
 }
 print "Statistics\n";
 print str_replace(',', '', $summary);
