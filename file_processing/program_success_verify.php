@@ -300,7 +300,7 @@ if($limited_search)
 	foreach ($search_esns[0] as $esn)
 	{
 		if( isset($results[$esn]) ) $filtered[$esn] = $results[$esn];
-		else $filtered[$esn] = array('esn' => $esn, 'timestamp' => 0, 'state' => 'FAIL', 'desc' => 'record for esn not found');
+		else $filtered[$esn] = array('esn' => $esn, 'timestamp' => 0, 'date' => date("m/d/Y H:i:s", 0),'state' => 'FAIL', 'desc' => 'record for esn not found');
 	}
 	if($debug) print_r($filtered);
 	$stats['results'] = count($filtered);
