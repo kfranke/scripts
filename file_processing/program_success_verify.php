@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 ini_set("pcre.backtrack_limit", "-1");
 date_default_timezone_set("UTC"); 
@@ -196,7 +197,7 @@ unset($matches, $failures);
 $pass_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Successfully Programmed.*(33[0-9]{5})(?:[\s\S]+?)(via Bluetooth)[\s\S]+?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})/';
 preg_match_all($pass_ptn, $contents, $matches);
 print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
-print "Found " . count(array_filter($matches[1])) . " passing via cable ESN records\n";
+print "Found " . count(array_filter($matches[1])) . " passing via BTLE ESN records\n";
 
 if( count($matches) === 5 )
 {
@@ -213,7 +214,7 @@ if( isset($successes) && count($successes) > 0 )
 {
 	foreach ($successes as $success)
 	{
-		if($debug) print "Found successful program response for: $success[1] via serial cable\n";
+		if($debug) print "Found successful program response for: $success[1] via BTLE\n";
 		// add successful record to array keyed on ESN
 		// just b/c there is a successful doesn't mean most recent for ESN is successful
 		$ts = strtotime(str_replace(',', ' ', $success[0]));
@@ -231,7 +232,7 @@ unset($matches, $successes);
 $fail_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Unable to Program.*(33[0-9]{5})(?:[\s\S]+?)(via Bluetooth)[\s\S]+?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})/';
 preg_match_all($fail_ptn, $contents, $matches);
 print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
-print "Found " . count(array_filter($matches[1])) . " failing via cable ESN records\n";
+print "Found " . count(array_filter($matches[1])) . " failing via BTLE ESN records\n";
 
 if( count($matches) === 5 )
 {
@@ -248,7 +249,7 @@ if( isset($failures) && count($failures) > 0 )
 {
 	foreach ($failures as $failed)
 	{
-		if($debug) print "Found failure program response for: $failed[1] via serial cable\n";
+		if($debug) print "Found failure program response for: $failed[1] via BTLE\n";
 		// add failed record to array keyed on ESN
 		// just b/c there is a failure doesn't mean most recent for ESN is failure
 		$ts = strtotime(str_replace(',', ' ', $failed[0]));
