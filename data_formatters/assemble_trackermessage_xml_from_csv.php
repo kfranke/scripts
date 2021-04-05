@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('UTC');
 
-$template = file_get_contents('trackerMessageXML.xml');
+$template = file_get_contents('../samples/trackerMessageXML.xml');
 
 if(!$argv[1]) die("Usage: script.php source.csv\n");
 else($source = $argv[1]);
