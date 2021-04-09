@@ -2,13 +2,45 @@
 date_default_timezone_set('UTC');
 
 //setup
-(count($argv) < 2) ? die("Must specify ESN to search\n") : false;
+(count($argv) < 3) ? die("Usage: script.php log/files/directory/ 0-esn\n") : false;
 
-//die();
-$esn_to_search = $argv[1];
-$file_ptn = "numerex_transponders_2019*.csv";
+$valid_dir = false;
+$file_ptn = "numerex_transponders_202*.csv";
+$esn_ptn = '/0\-[1-4][0-9]{5,6}/';
 
-$file_dir = "~/Downloads/twicedailies";
+if( !$argv[1] ){
+	die("Error: Missing script parameter.\n" );
+}
+elseif( is_dir($argv[1]) ){
+	$log_dir = $argv[1];
+	$valid_dir = true;
+	$log_dir_uri = pathinfo($log_dir);
+	$output_dir = $log_dir_uri['dirname'];
+	$files = glob("$log_dir/$file_ptn", GLOB_BRACE);
+
+	print("Supplied dir set to: $log_dir\n");
+}
+else{
+	die("Error: Directory \"$log_dir\" does not exist!");
+}
+
+if( !$argv[2] ){
+	die("Error: Missing script parameter.\n");
+}
+elseif( !preg_match($esn_ptn, $argv[2]) ){
+	die("Error: Supplied \"$argv[2]\" did not match any ESNs.\n");
+}
+else{
+	// TODO: add multi ESN support
+	$search_esns = array(); 
+	preg_match_all($esn_ptn, $argv[2], $search_esns);
+	print("Search ESNs: \n");
+	print( implode("\n", $search_esns[0]) . "\n");	
+}
+
+
+$esns_to_search = $search_esns[0];
+
 $dataset = array();
 /*
 ESN 0
@@ -25,8 +57,6 @@ $headers['fields'] = array(
 	    	'PERCENTAGE BATTERY LIFE REMAINING',
 	    	'REPORT_FILE_DATE');
 
-//get all files in array
-$files = glob("$file_dir/$file_ptn", GLOB_BRACE);
 
 //loop over files
 $record = 0;
@@ -47,7 +77,7 @@ foreach ($files as $file) {
 		        //16/02/2017 20:33:26 GMT
 		        $mrrts = $data[15];
 		        $batt = $data[16];
-		        if($esn == $esn_to_search)
+		        if( in_array($esn, $esns_to_search) )
 		        {
 		        	print("Found ESN: ". $esn .", grabbing info\n");
 		        	if(preg_match("/[0-9]{2}\/[0-9]{2}\/[0-9]{4}\s[0-9]{2}\:[0-9]{2}\:[0-9]{2}\sGMT/", $mrrts))
@@ -83,14 +113,15 @@ foreach ($files as $file) {
 }
 
 // Write dataset to file
-$out = fopen(__DIR__ . '/output/'.date("U").'_'.$esn_to_search.'_report.csv', 'w');
+$results = $output_dir.'/'.date("U").'_'.'battery_history'.'_report.csv';
+$out = fopen($results, 'w');
 fwrite($out, implode(",", $headers['fields']) . "\r\n");
 foreach($dataset as $entry){
 	foreach ($entry as $item => $details) {
-		// $row = '"' . $item . '"' .",". implode(",", $details) . "\r\n";
 		$row = implode(",", $details) . "\r\n";
 		fwrite($out, $row);
 	}	
 }
 fclose($out);
+print "Wrote $record to $results\n";
 ?>
