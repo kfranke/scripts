@@ -34,6 +34,8 @@ print("
 	*                                                       *
 	* Program can appear to hang due to pcre matching       *
 	* 5/15/2020 Programming via BTLE is unreliable          *
+	* 10/25/2021 Updated for more strict fail & pass checks *
+	* ESN range 0-3300000, 0-4500000                        *
 	*                                                       *
 	* ***************************************************** *
 	");
@@ -83,26 +85,18 @@ if ($handle)
 {
     while (($buffer = fgets($handle, 4096)) !== false)
     {
-        // search for all ESNs list entries and add to records. 
-        
-        /*
-        * 5/8/2020,18:41:25,ListViewItem 7877| 3314684
-		* 5/8/2020,18:42:11,818| Successfully queried the ESN 3314684
-		* 5/15/2020,11:50:31,ESN Received: 3303450
-		* 5/15/2020,11:50:31,ESN: 3303450
-		* 5/8/2020,18:44:50,newLI ListViewItem: {3314684}
-		* 5/15/2020,10:54:41,Successfully Programmed: 3314684
-		* 5/15/2020,12:08:41,Unable to Program: 3314684
-        * 6/7/2019,10:31:06,ListViewItem B| 3315175 :: 1.713 - COM38 -- 9600
-        * 5/7/2019,10:54:39,ListViewItem 7877| 3316369 :: 1.7.0 - COM28 -- 9600
-		*/
-    	
-		$query_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*(33[0-9]{5})/';
-		preg_match($query_ptn, $buffer, $matches);
+        // Search for all ESNs list entries and add to records. 
+
+		// Contains 5/8/2020,18:41:25 {anything} 3314684
+		// Matches[1] == timestamp
+		// Matches[2] == ESN
+
+		$ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*(33[0-9]{5}|45[0-9]{5}).*$/';
+		preg_match($ptn, $buffer, $matches);
 		if( count($matches) === 3 && isset($matches[1]) && isset($matches[2]) )
 		{
 			// add query record and set state to uncertain
-			$ts = strtotime(str_replace(',', ' ', $matches[1]) );
+			$ts = 0; // zero else queried can take precedence over programmed
 			$records[$matches[2]][] = array(
 				'timestamp' => $ts,
 				'date' => date("m/d/Y H:i:s", $ts), 
@@ -113,155 +107,139 @@ if ($handle)
 		} 
     }
     $stats['unique'] = count(array_unique($found));
-    print "Found " . $stats['unique'] . " ESN records\n";
+    print "Found " . $stats['unique'] . " unique ESN records in file: " . $log_file . " size: " . human_filesize(filesize($log_file)) . "\n";
     if($debug) print '$records: ' . print_r($records, true);
     fseek($handle, 0); // rewind
     $contents = fread($handle, filesize($log_file));
-    fclose($handle);	
+    fclose($handle);
+    unset($matches, $ptn);
 }
 
-// search for success via serial cable
-// 6/7/2019,11:11:07,Successfully queried the ESN 3313740 on: COM41... ...Written all the commands
-$pass_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Successfully(?: queried the ESN).*(33[0-9]{5})(?:[\s\S]+?)(Written all the commands)[\s\S]+?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})/';
-preg_match_all($pass_ptn, $contents, $matches);
-print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
-print "Found " . count(array_filter($matches[1])) . " passing via cable ESN records\n";
+// Search for success via serial cable
 
-if( count($matches) === 5 )
+// Beings with "6/7/2019,11:11:07,Successfully queried the ESN 3313740"
+// Does not contain "fail() True"
+// Ends with "Written all the commands"
+// Matches[1] == Begin timestamp
+// Matches[2] == ESN
+// Matches[3] == End timestamp
+
+$ptn = '/(?m)^([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})(?:.+)(?:Successfully queried the ESN)(?:.+)(33[0-9]{5}|45[0-9]{5})(?:(?!fail\(\) True)[\s\S])*?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})(?:.+)(?:Written all the commands.+)$/';
+
+print "Searching for passing via serial cable..." . "\n";
+preg_match_all($ptn, $contents, $matches, PREG_SET_ORDER);
+if( count($matches) > 0 )
 {
-	$successes = array();
-	for ($i=1; $i < count(array_filter($matches)); $i++)
-	{ 
-		foreach ($matches[$i] as $key => $value)
-		{
-			$successes[$key][] = $value;
-		}
-	}
-}
-if( isset($successes) && count($successes) > 0 )
-{
-	foreach ($successes as $success)
+	foreach ($matches as $match)
 	{
-		if($debug) print "Found successful program response for: $success[1] via serial cable\n";
+		if($debug) print "Found successful program response for: $match[2] via serial cable\n";
 		// add successful record to array keyed on ESN
 		// just b/c there is a successful doesn't mean most recent for ESN is successful
-		$ts = strtotime(str_replace(',', ' ', $success[3]));
-		$records[$success[1]][] = array(
-		'timestamp' => $ts,
-		'date' => date("m/d/Y H:i:s", $ts), 
-		'esn' => $success[1], 
-		'state' => 'PASS',
-		'desc' => 'successful program response serial');
+		$ts = strtotime(str_replace(',', ' ', $match[3]));
+		$records[$match[2]][] = array(
+			'timestamp' => $ts,
+			'date' => date("m/d/Y H:i:s", $ts), 
+			'esn' => $match[2], 
+			'state' => 'PASS',
+			'desc' => 'successful program response serial');
 	}
 }
-unset($matches, $successes);
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
+print "Found " . count($matches) . " passing via cable ESN records\n";
+unset($matches, $ptn);
 
 // search for failure via serial cable			
-// 5/8/2020,18:36:15,818| Successfully queried the ESN 3314684 on: COM4... ...fail() True
-$fail_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Successfully(?: queried the ESN).*(33[0-9]{5})(?:[\s\S]+?)(fail\(\) True)[\s\S]+?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})/';
-preg_match_all($fail_ptn, $contents, $matches);
-print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
-print "Found " . count(array_filter($matches[1])) . " failing via cable ESN records\n";
 
-if( count($matches) === 5 )
+// Begins with "5/8/2020,18:36:15,818| Successfully queried the ESN 3314684"
+// Does not contain "Written all the commands"
+// Ends with "fail() True"
+// Match 1 == Begin timestamp
+// Match 2 == ESN
+// Match 3 == End timestamp
+
+$ptn = '/(?m)^([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})(?:.+)(?:Successfully queried the ESN)(?:.+)(33[0-9]{5}|45[0-9]{5})(?:(?!Written all the commands)[\s\S])*?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})(?:.+)(?:fail\(\) True.*?)$/';
+
+print "Searching for failures via serial cable..." . "\n";
+preg_match_all($ptn, $contents, $matches, PREG_SET_ORDER);
+if( count($matches) > 0 )
 {
-	$failures = array();
-	for ($i=1; $i < count(array_filter($matches)); $i++)
-	{ 
-		foreach ($matches[$i] as $key => $value)
-		{
-			$failures[$key][] = $value;
-		}
-	}
-}
-if( isset($failures) && count($failures) > 0 )
-{
-	foreach ($failures as $failed)
+	foreach ($matches as $match)
 	{
-		if($debug) print "Found failure program response for: $failed[1] via serial cable\n";
+		if($debug) print "Found failure program response for: $match[2] via serial cable\n";
 		// add failed record to array keyed on ESN
 		// just b/c there is a failure doesn't mean most recent for ESN is failure
-		$ts = strtotime(str_replace(',', ' ', $failed[3]));
-		$records[$failed[1]][] = array(
-		'timestamp' => $ts,
-		'date' => date("m/d/Y H:i:s", $ts), 
-		'esn' => $failed[1], 
-		'state' => 'FAIL',
-		'desc' => 'failed program response serial');
+		$ts = strtotime(str_replace(',', ' ', $match[3]));
+		$records[$match[2]][] = array(
+			'timestamp' => $ts,
+			'date' => date("m/d/Y H:i:s", $ts), 
+			'esn' => $match[2], 
+			'state' => 'FAIL',
+			'desc' => 'failed program response serial');
 	}
 }
-unset($matches, $failures);
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
+print "Found " . count($matches) . " failing via cable ESN records\n";
+unset($matches, $ptn);
 
 // search for success via btle
-//5/15/2020,12:26:45,Successfully Programmed: 3303450 via Bluetooth
-$pass_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Successfully Programmed.*(33[0-9]{5})(?:[\s\S]+?)(via Bluetooth)[\s\S]+?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})/';
-preg_match_all($pass_ptn, $contents, $matches);
-print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
-print "Found " . count(array_filter($matches[1])) . " passing via BTLE ESN records\n";
 
-if( count($matches) === 5 )
+// Contains "5/15/2020,12:26:45,Successfully Programmed: 3303450 via Bluetooth"
+// Matches[1] == timestamp
+// Matches[2] == ESN
+
+$ptn = '/(?m)^([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Successfully Programmed.*(33[0-9]{5}|45[0-9]{5})(?:[\s\S]+?)(?:via Bluetooth.*?)$/';
+
+print "Searching for passing via BTLE..." . "\n";
+preg_match_all($ptn, $contents, $matches, PREG_SET_ORDER);
+if( count($matches) > 0 )
 {
-	$successes = array();
-	for ($i=1; $i < count(array_filter($matches)); $i++)
-	{ 
-		foreach ($matches[$i] as $key => $value)
-		{
-			$successes[$key][] = $value;
-		}
-	}
-}
-if( isset($successes) && count($successes) > 0 )
-{
-	foreach ($successes as $success)
+	foreach ($matches as $match)
 	{
-		if($debug) print "Found successful program response for: $success[1] via BTLE\n";
-		// add successful record to array keyed on ESN
-		// just b/c there is a successful doesn't mean most recent for ESN is successful
-		$ts = strtotime(str_replace(',', ' ', $success[0]));
-		$records[$success[1]][] = array(
-		'timestamp' => $ts,
-		'date' => date("m/d/Y H:i:s", $ts), 
-		'esn' => $success[1], 
-		'state' => 'PASS',
-		'desc' => 'successful program response btle');
+		if($debug) print "Found failure program response for: $match[2] via serial cable\n";
+		// add failed record to array keyed on ESN
+		// just b/c there is a failure doesn't mean most recent for ESN is failure
+		$ts = strtotime(str_replace(',', ' ', $match[1]));
+		$records[$match[2]][] = array(
+			'timestamp' => $ts,
+			'date' => date("m/d/Y H:i:s", $ts), 
+			'esn' => $match[2], 
+			'state' => 'PASS',
+			'desc' => 'successful program response btle');
 	}
 }
-unset($matches, $successes);
-// search for failure via serial btle
-// 5/15/2020,12:08:41,Unable to Program: 3314684 via Bluetooth
-$fail_ptn = '/([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Unable to Program.*(33[0-9]{5})(?:[\s\S]+?)(via Bluetooth)[\s\S]+?([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2})/';
-preg_match_all($fail_ptn, $contents, $matches);
 print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
-print "Found " . count(array_filter($matches[1])) . " failing via BTLE ESN records\n";
+print "Found " . count($matches) . " passing via BTLE ESN records\n";
+unset($matches, $ptn);
 
-if( count($matches) === 5 )
+// search for failure via serial btle
+
+// Contains "5/15/2020,12:08:41,Unable to Program: 3314684 via Bluetooth"
+// Matches[1] == timestamp
+// Matches[2] == ESN
+
+$ptn = '/(?m)^([0-9]{1,2}\/[0-9]{1,2}\/[0-9]{2,4},[0-9]{2}:[0-9]{2}:[0-9]{2}).*Unable to Program.*(33[0-9]{5}|45[0-9]{5})(?:[\s\S]+?)(?:via Bluetooth.*?)$/';
+
+preg_match_all($ptn, $contents, $matches, PREG_SET_ORDER);
+if( count($matches) > 0 )
 {
-	$failures = array();
-	for ($i=1; $i < count(array_filter($matches)); $i++)
-	{ 
-		foreach ($matches[$i] as $key => $value)
-		{
-			$failures[$key][] = $value;
-		}
-	}
-}
-if( isset($failures) && count($failures) > 0 )
-{
-	foreach ($failures as $failed)
+	foreach ($matches as $match)
 	{
 		if($debug) print "Found failure program response for: $failed[1] via BTLE\n";
 		// add failed record to array keyed on ESN
 		// just b/c there is a failure doesn't mean most recent for ESN is failure
-		$ts = strtotime(str_replace(',', ' ', $failed[0]));
-		$records[$failed[1]][] = array(
-		'timestamp' => $ts,
-		'date' => date("m/d/Y H:i:s", $ts), 
-		'esn' => $failed[1], 
-		'state' => 'FAIL',
-		'desc' => 'failed program response btle');
+		$ts = strtotime(str_replace(',', ' ', $match[1]));
+		$records[$match[2]][] = array(
+			'timestamp' => $ts,
+			'date' => date("m/d/Y H:i:s", $ts), 
+			'esn' => $match[2], 
+			'state' => 'FAIL',
+			'desc' => 'failed program response btle');
 	}
 }
-unset($matches, $failures);
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
+print "Found " . count($matches) . " failing via BTLE ESN records\n";
+unset($matches, $ptn);
+
 
 print "Updated records with status...\n";
 if($debug) print '$records: ' . print_r($records, true);
@@ -275,7 +253,7 @@ foreach ($records as $record) {
 	{
 		if($entry['timestamp'] >= $ts)
 		{
-			if($debug) print "Entry of: ".$entry['date']." for ".$entry['esn']." is >= than ts: ".date("m/d/Y H:i:s", $ts)."\n";
+			if($debug) print "Entry of: ".$entry['date']." for ".$entry['esn'] . "(" .$entry['state']. ")" ." is >= than ts: ".date("m/d/Y H:i:s", $ts)."\n";
 			$item['esn'] = $entry['esn'];
 			$item['timestamp'] = $entry['timestamp'];
 			$item['date'] = $entry['date'];
@@ -286,7 +264,7 @@ foreach ($records as $record) {
 		}
 		else
 		{
-			if($debug) print "Entry of: ".$entry['date']." for ".$entry['esn']." is not >= than ts: ".date("m/d/Y H:i:s", $ts)."\n";
+			if($debug) print "Entry of: ".$entry['date']." for ".$entry['esn'] . "(" .$entry['state']. ")" . " is not >= than ts: ".date("m/d/Y H:i:s", $ts)."\n";
 		}
 		
 	}
@@ -353,3 +331,9 @@ print "Statistics\n";
 print str_replace(',', '', $summary);
 file_put_contents($output_dir . '/' . $output_file, $summary . $data);
 print "Wrote data to: " . $output_dir . '/' . $output_file . "\n";
+
+function human_filesize($bytes, $decimals = 2) {
+  $sz = 'BKMGTP';
+  $factor = floor((strlen($bytes) - 1) / 3);
+  return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
+}
