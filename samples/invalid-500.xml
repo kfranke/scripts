@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE stuMessages SYSTEM "http://cody.glpconnect.com/DTD/StuMessage_Rev6.dtd">
+<stuMessages messageID="2ec8722a614dc26a0b0022ba095c8ad2" timeStamp="30/03/2021 19:13:39 GMT">
+	<stuMessage>
+		<esn>0-1000999</esn>
+		<unixTime>1617131619</unixTime>
+		<gps>Y</gps>
+		<payload length="9" source="pc" encoding="hex">0x00416C17B1110F0A00</payload>
+	</stuMessage>
+</stuMessages>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<trackermessages version="1.0">
+	<trackermessage type="smartone_standard" id="140711908" positional="true" unixtime="1607378828">
+		<asset>
+			<esn>0-3303504</esn>
+			<name>RMS_9114</name>
+		</asset>
+		<cause>
+			<trigger>Geofence: 0_0_LatLon</trigger>
+			<condition>Outside</condition>
+		</cause>
+		<position>
+			<coordinate type="dd">
+				<latitude>36.192001104355</latitude>
+				<longitude>43.96981716156</longitude>
+			</coordinate>
+			<address>
+				<street_address>English Village Rd</street_address>
+				<city>Erbil</city>
+				<state>ERBIL GOVERNORAT</state>
+				<zip></zip>
+				<county>Erbil</county>
+			</address>
+		</position>
+		<motion>false</motion>
+		<payload>
+			<field name="alarm_1_missed" data="false" format="boolean" units="" />
+			<field name="alarm_2_missed" data="false" format="boolean" units="" />
+			<field name="digital_1_on" data="true" format="boolean" units="" />
+			<field name="digital_1_alarm" data="true" format="boolean" units="" />
+			<field name="digital_2_on" data="true" format="boolean" units="" />
+			<field name="digital_2_alarm" data="false" format="boolean" units="" />
+			<field name="invalid_gps" data="false" format="boolean" units="" />
+			<field name="stats_gps_failures" data="0" format="numeric" units="" />
+			<field name="gps_fix_confidence" data="0" format="enumeration" units="" />
+			<field name="latitude" data="36.192001104355" format="numeric" units="degrees" />
+			<field name="longitude" data="43.96981716156" format="numeric" units="degrees" />
+			<field name="battery_state" data="false" format="boolean" units="" />
+			<field name="smartone_standard_message_cause" data="0100" format="enumeration" units="" />
+			<field name="motion" data="false" format="boolean" units="" />
+			<field name="raw_payload" data="0033791B1F44764B00" format="string" units="" />
+		</payload>
+	</trackermessage>
+</trackermessages>
