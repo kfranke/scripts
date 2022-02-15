@@ -4,7 +4,7 @@
  *
  * @author     Kevin Franke
  * @version    1.0
- * @link
+ * @link       https://github.com/kfranke/scripts/blob/735d82c205f989cdb44c114375b4bd2c02c768a9/api/Bitly.php
  * @method     shorten()
  * @method     expand()
  * @method     guids()
