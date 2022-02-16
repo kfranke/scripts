@@ -4,7 +4,7 @@
  *
  * @author     Kevin Franke
  * @version    1.0
- * @link       https://github.com/kfranke/scripts/blob/735d82c205f989cdb44c114375b4bd2c02c768a9/api/Bitly.php
+ * @link
  * @method     shorten()
  * @method     expand()
  * @method     guids()
@@ -14,25 +14,25 @@
 define('BITLY_ROOT', 'https://api-ssl.bitly.com/v4');
 define('BITLY_DOMAIN', 'bit.ly');
 define('BITLY_GUID', '{yourGuid}');
-define('BITLY_TOKEN', '{yourApiToken}');
+define('BITLY_TOKEN', '{yourToken}');
 
 // Instantiate
 $bitly = new Bitly(BITLY_TOKEN);
 
 // Shorten URL ($short->link)
 $short = $bitly->shorten('https://maps.google.com/maps?f=q&hl=en&geocode=&q=38.12345,-109.12345&ie=UTF8&z=12&om=1');
-print "short: " . "\n";
-print_r($short);
-
-// Get GUIDs
-$guids = $bitly->guids();
-print "guids: " . "\n";
-print_r($guids);
+// print "short: " . "\n";
+// print_r($short);
 
 // Expand URL ($long->long_url)
 $long = $bitly->expand('https://bit.ly/3gs2u7Z');
-print "long: " . "\n";
-print_r($long);
+// print "long: " . "\n";
+// print_r($long);
+
+// Get GUIDs
+$guids = $bitly->guids();
+// print "guids: " . "\n";
+// print_r($guids);
 
 
 class Bitly
@@ -84,15 +84,26 @@ class Bitly
         {
             $err = curl_error($ch);
             $http_status = -1;
-            throw new Exception("Server's response was not valid HTTP. Error: " . $err);
+            Notifier::send_exception_report('[BITLY]: Exception', $err);
+            throw new Exception("[BITLY]: Exception. Server's response was not valid HTTP. Error: " . $err);
         }
         else
         {
             $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $response = json_decode($response);
         }
         curl_close($ch);
-
-        return json_decode($response);
+        $success = (substr($http_status, 0, 1) == "2"); // 2xx codes = success
+        if(!$success)
+        {
+            print ("[BITLY] - Error: " . $response->message . "\n");
+            $response = false;
+        }
+        else
+        {
+            print ("[BITLY] - " .__METHOD__. " " . $long_url . " To: " . $response->link . "\n");
+        }
+        return $response;
     }
 
     public function expand(string $short_url)
@@ -116,15 +127,26 @@ class Bitly
         {
             $err = curl_error($ch);
             $http_status = -1;
-            throw new Exception("Server's response was not valid HTTP. Error: " . $err);
+            Notifier::send_exception_report('[BITLY] - Exception', $err);
+            throw new Exception("[BITLY] - Exception. Server's response was not valid HTTP. Error: " . $err);
         }
         else
         {
             $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $response = json_decode($response);
         }
         curl_close($ch);
-
-        return json_decode($response);
+        $success = (substr($http_status, 0, 1) == "2"); // 2xx codes = success
+        if(!$success)
+        {
+            print ("[BITLY] - Error: " . $response->message . "\n");
+            $response = false;
+        }
+        else
+        {
+            print ("[BITLY] - " .__METHOD__. " " . $short_url . " To: " . $response->link . "\n");
+        }
+        return $response;
     }
 
     public function guids(string $guid = null)
@@ -142,15 +164,43 @@ class Bitly
         {
             $err = curl_error($ch);
             $http_status = -1;
-            throw new Exception("Server's response was not valid HTTP. Error: " . $err);
+            Notifier::send_exception_report('[BITLY] - Exception', $err);
+            throw new Exception("[BITLY] - Exception. Server's response was not valid HTTP. Error: " . $err);
         }
         else
         {
             $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $response = json_decode($response);
         }
         curl_close($ch);
-
-        return json_decode($response);
+        $success = (substr($http_status, 0, 1) == "2"); // 2xx codes = success
+        if(!$success)
+        {
+            print ("[BITLY] - Error: " . $response->message . "\n");
+            $response = false;
+        }
+        else
+        {
+            $guids = recursiveFind($response, 'guid');
+            print ("[BITLY] - " .__METHOD__. " (" . implode(',', $guids) . ")" . "\n");
+        }
+        return $response;
     }
 
 }
+
+
+function recursiveFind($array, string $needle)
+    {
+        $iterator  = new RecursiveArrayIterator($array);
+        $recursive = new RecursiveIteratorIterator($iterator, RecursiveIteratorIterator::SELF_FIRST);
+        $matches = array();
+        foreach ($recursive as $key => $value)
+        {
+            if ($key === $needle)
+            {
+                array_push($matches, $value);
+            }
+        }
+        return $matches;
+    }
