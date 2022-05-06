@@ -36,6 +36,7 @@ print("
 	* 5/15/2020 Programming via BTLE is unreliable          *
 	* 10/25/2021 Updated for more strict fail & pass checks *
 	* ESN range 0-3300000, 0-4500000                        *
+	* 5/6/2022 Updated for php 8+ better err handling       *
 	*                                                       *
 	* ***************************************************** *
 	");
@@ -43,7 +44,12 @@ print("\n");
 readline("Enter to continue...");
 $limited_search = false;
 $valid_log_file = false;
-$stats = array();
+$stats = array(
+	'unique' => 0, 
+	'passed' => 0, 
+	'failed' => 0,
+	'mode' => null,
+	'results' => 0);
 
 if( !$argv[1] ){
 	print("No log file specified at startup! \n");
@@ -144,7 +150,9 @@ if( count($matches) > 0 )
 			'desc' => 'successful program response serial');
 	}
 }
-print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre'], function ($value) {
+	return substr($value, -6) === '_ERROR';
+}, ARRAY_FILTER_USE_KEY))[preg_last_error()] . "\n";
 print "Found " . count($matches) . " passing via cable ESN records\n";
 unset($matches, $ptn);
 
@@ -177,7 +185,9 @@ if( count($matches) > 0 )
 			'desc' => 'failed program response serial');
 	}
 }
-print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre'], function ($value) {
+	return substr($value, -6) === '_ERROR';
+}, ARRAY_FILTER_USE_KEY))[preg_last_error()] . "\n";
 print "Found " . count($matches) . " failing via cable ESN records\n";
 unset($matches, $ptn);
 
@@ -207,7 +217,9 @@ if( count($matches) > 0 )
 			'desc' => 'successful program response btle');
 	}
 }
-print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre'], function ($value) {
+	return substr($value, -6) === '_ERROR';
+}, ARRAY_FILTER_USE_KEY))[preg_last_error()] . "\n";
 print "Found " . count($matches) . " passing via BTLE ESN records\n";
 unset($matches, $ptn);
 
@@ -236,7 +248,9 @@ if( count($matches) > 0 )
 			'desc' => 'failed program response btle');
 	}
 }
-print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre']))[preg_last_error()] . "\n";
+print "Regex errors: " . array_flip(array_filter(get_defined_constants(true)['pcre'], function ($value) {
+	return substr($value, -6) === '_ERROR';
+}, ARRAY_FILTER_USE_KEY))[preg_last_error()] . "\n";
 print "Found " . count($matches) . " failing via BTLE ESN records\n";
 unset($matches, $ptn);
 
