@@ -7,7 +7,7 @@ $print_headers = false;
 $output = null; //json
 $retval = null; //int
 $location_id = 15355;
-exec('speedtest -s ' . $location_id . ' -f json', $output, $retval);
+exec('/opt/homebrew/bin/speedtest -s ' . $location_id . ' -f json', $output, $retval);
 if($retval != 0) exit; // anything else is an error
 $speed = json_decode($output[0]);
 
@@ -15,7 +15,7 @@ $speed->download->mbps = $speed->download->bandwidth / 125 / 1000;
 $speed->upload->mbps = $speed->upload->bandwidth / 125 / 1000;
 
 $headers = array(
-				"Timestamp", 
+				"Timestamp (UTC)", 
 				"Ping",
 				"Download Mbps",
 				"Upload Mbps",

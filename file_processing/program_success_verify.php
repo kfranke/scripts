@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/opt/homebrew/bin/php
 <?php
 ini_set("pcre.backtrack_limit", "-1");
 date_default_timezone_set("UTC"); 
