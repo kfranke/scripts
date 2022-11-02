@@ -1,4 +1,5 @@
 <?php
+require(__DIR__ . "/../_GLOBALS.php");
 /**
  * Bitly - URL shortening service.
  *
@@ -13,8 +14,9 @@
 // Development only. Store elsewhere for production
 define('BITLY_ROOT', 'https://api-ssl.bitly.com/v4');
 define('BITLY_DOMAIN', 'bit.ly');
-define('BITLY_GUID', '{yourGuid}');
-define('BITLY_TOKEN', '{yourToken}');
+
+//define('BITLY_GUID', '{yourGuid}');
+//define('BITLY_TOKEN', '{yourToken}');
 
 // Instantiate
 $bitly = new Bitly(BITLY_TOKEN);
